@@ -6,23 +6,27 @@
 ![Status](https://img.shields.io/badge/status-v0.1%20alpha-2563EB.svg)
 ![Agent-first](https://img.shields.io/badge/agent--first-SKILL.md-0F766E.svg)
 
-Research Slides is an **agent-first skill for academic presentations**. Instead of treating a paper like generic text, it asks the agent to preserve evidence, citations, equations, figures and research structure while turning the material into a clear visual story.
+<img src="assets/demo-cover.svg" width="100%" />
 
-## ✨ First demo
+## 🚀 Live Demo
 
 ### Attention Is All You Need → research presentation
 
-The first example turns Vaswani et al. (2017) into a citation-aware research deck using original HTML/CSS visuals rather than copied paper figures.
+A 12-slide visual walkthrough of the Transformer paper.
 
-**[Open the demo files →](examples/attention-is-all-you-need/)**
+**[Open Transformer Demo](docs/demo.html)**
 
 The demo includes:
 
-- a 12-slide research narrative
-- a self-contained HTML presentation
+- a research narrative instead of a paper summary
+- original HTML/CSS scientific visuals
 - slide-level source mapping
-- original diagrams for the Transformer and self-attention
+- equation-aware explanations
 - explicit separation between reported results and interpretation
+
+## What is Research Slides?
+
+Research Slides is an **agent-first skill for academic presentations**. Instead of treating a paper like generic text, it asks the agent to preserve evidence, citations, equations, figures and research structure while turning the material into a clear visual story.
 
 ## What makes this different?
 
@@ -42,18 +46,18 @@ Paper / Notes / Data
        Review
 ```
 
-### Research-first principles
+## Research-first principles
 
 - **Never invent numbers.** Reported values must be traceable to a supplied or verified source.
 - **Never fabricate citations.** Unknown provenance is marked as unknown instead of guessed.
 - **Figure-aware.** Figures are treated as evidence, not decoration.
 - **Equation-aware.** Mathematical notation should remain mathematically faithful.
-- **Show, don't tell.** Visual structure should explain the research rather than simply restyle paragraphs.
+- **Show, don't tell.** Visual structure should explain research rather than simply restyle paragraphs.
 - **Progressive disclosure.** The agent loads detailed rules only when the task needs them.
 
 ## Use with a coding agent
 
-Point a coding agent at this repository and ask it to start from [`SKILL.md`](SKILL.md).
+Start from [`SKILL.md`](SKILL.md).
 
 Example:
 
@@ -63,33 +67,20 @@ Turn this paper into a 12-slide group-meeting presentation.
 Keep every quantitative claim traceable to the source.
 ```
 
-The core skill is designed to be readable by coding agents with repository/filesystem access. Agent-specific packaging will be added after the core workflow is stable.
-
 ## Repository map
 
 ```text
 research-slides/
-├── README.md
 ├── SKILL.md
 ├── RESEARCH_RULES.md
 ├── STYLE_PRESETS.md
 ├── SLIDE_SYSTEM.md
-├── scripts/
+├── docs/
+│   └── demo.html
 └── examples/
     └── attention-is-all-you-need/
+        └── presentation.html
 ```
-
-## Current scope — v0.1 alpha
-
-Research Slides is currently a **research prototype**, not a finished one-command slide generator. The v0.1 goal is to make the reasoning and presentation workflow strong before adding more automation.
-
-Current focus:
-
-- paper → structured slide narrative
-- citation-aware claim mapping
-- scientific visual systems
-- reproducible HTML presentations
-- lightweight validation utilities
 
 ## Roadmap
 
@@ -97,12 +88,11 @@ Current focus:
 - [x] Research-integrity rules
 - [x] Scientific slide system
 - [x] First paper-to-slides demo
+- [x] Online demo entry
 - [ ] PDF structure/figure extraction pipeline
 - [ ] Citation verification CLI
 - [ ] More academic visual systems
 - [ ] Data/notebook → presentation workflow
-- [ ] Agent-specific installers
-- [ ] One-command HTML/PDF export
 
 ## Design philosophy
 
