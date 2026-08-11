@@ -10,20 +10,56 @@
 
 ## Visual Snapshot
 
-A warm scholarly editorial system: cream paper, deep charcoal type, restrained brick-red emphasis, serif-led hierarchy, and journal-like pacing. It should feel authored and deliberate rather than decorative or nostalgic.
+A warm scholarly editorial system built from strong serif hierarchy, asymmetric columns, hairline rules, and disciplined marginal evidence notes. It should feel authored and intellectually paced—not nostalgic, decorative, or magazine-like.
 
 ## Preview Ingredients
 
-- Palette: paper `#F3EFE6`, ink `#231F1B`, soft brown `#746A61`, brick `#9F3F32`, olive `#6D7458`
-- Typography: Cormorant Garamond for major titles, Source Sans 3 for body, IBM Plex Mono for source metadata
-- Signature move: asymmetrical editorial columns and marginal evidence notes
-- Signature move: one strong quotation, figure, or conceptual statement per slide
-- Avoid: magazine cosplay, ornamental flourishes, script fonts, faux book pages
+- Paper: `#F3EFE6`
+- Ink: `#231F1B`
+- Soft text: `#4F4740`
+- Muted metadata: `#746A61`
+- Brick emphasis: `#9F3F32`
+- Olive continuity/context: `#6D7458`
+- Display: Cormorant Garamond / Georgia / serif fallback
+- Body: Source Sans 3 / Aptos / Segoe UI
+- Source labels: IBM Plex Mono / Consolas
+
+Signature moves:
+
+- deliberate serif line breaks;
+- 7/5 or 8/4 asymmetric columns;
+- one narrow margin rail for provenance or interpretation status;
+- central rules rather than boxes;
+- short italic framing sentences used sparingly;
+- evidence categories kept visually separate from interpretation.
+
+Avoid:
+
+- magazine cosplay;
+- script fonts;
+- oversized decorative quotation marks;
+- faux book pages;
+- ornamental borders;
+- free-floating marginal notes that can collide with body text;
+- three equal rounded cards used as a default conclusion layout.
 
 ## Preview Rules
 
-- Create one real 1920×1080 title slide with actual research content.
-- Use restraint: typography, margins, and one conceptual/evidence motif should carry the design.
-- Do not render template names, option labels, filenames, or workflow metadata.
+- Create one real 1920×1080 title slide using actual research content.
+- Let typography and spacing carry the design.
+- Use at most one restrained evidence/source motif.
+- Do not render template names, option labels, file paths, or workflow metadata.
+- Marginal notes must live inside an explicit rail with a known width; never place them over the body column.
+- At thumbnail scale, keep side notes short enough to remain legible.
+
+## Gallery Proof Rule
+
+Show three distinct editorial jobs:
+
+1. title / reading frame;
+2. argument / source-vs-interpretation separation;
+3. conclusion / evidence-boundary synthesis.
+
+The Gallery should prove the template can manage argument hierarchy, not merely produce a warm serif cover.
 
 After selection, read the full `design.md`.
