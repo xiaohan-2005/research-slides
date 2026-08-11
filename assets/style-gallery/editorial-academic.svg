@@ -1,6 +1,66 @@
-<svg width="1740" height="330" viewBox="0 0 1740 330" xmlns="http://www.w3.org/2000/svg">
-<rect width="1740" height="330" fill="transparent"/>
-<g transform="translate(0 12)"><rect width="540" height="304" rx="8" fill="#F3EFE6" stroke="#D5CDC1"/><text x="30" y="42" fill="#9F3F32" font-family="Consolas,monospace" font-size="10" letter-spacing="2">A READING OF THE TRANSFORMER</text><text x="30" y="120" fill="#231F1B" font-family="Georgia,serif" font-size="47" font-weight="700">Attention Is</text><text x="30" y="168" fill="#231F1B" font-family="Georgia,serif" font-size="47" font-weight="700">All You Need</text><line x1="30" y1="198" x2="190" y2="198" stroke="#9F3F32" stroke-width="2"/><text x="30" y="226" fill="#746A61" font-family="Segoe UI,Arial" font-size="13">Architecture, evidence, and what the paper actually claims</text><text x="30" y="278" fill="#746A61" font-family="Consolas,monospace" font-size="10">VASWANI ET AL. · 2017</text><text x="500" y="278" text-anchor="end" fill="#746A61" font-family="Consolas,monospace" font-size="10">01</text></g>
-<g transform="translate(600 12)"><rect width="540" height="304" rx="8" fill="#F3EFE6" stroke="#D5CDC1"/><text x="30" y="42" fill="#9F3F32" font-family="Consolas,monospace" font-size="10" letter-spacing="2">ARGUMENT</text><text x="30" y="95" fill="#231F1B" font-family="Georgia,serif" font-size="32" font-weight="700">The design removes</text><text x="30" y="130" fill="#231F1B" font-family="Georgia,serif" font-size="32" font-weight="700">recurrence from the stack.</text><line x1="30" y1="154" x2="510" y2="154" stroke="#D5CDC1"/><text x="30" y="190" fill="#4F4740" font-family="Segoe UI,Arial" font-size="13">Self-attention routes dependencies directly across positions,</text><text x="30" y="210" fill="#4F4740" font-family="Segoe UI,Arial" font-size="13">while the encoder–decoder structure remains intact.</text><text x="360" y="190" fill="#9F3F32" font-family="Georgia,serif" font-size="17" font-style="italic">reported structure</text><text x="360" y="214" fill="#6D7458" font-family="Georgia,serif" font-size="17" font-style="italic">interpretation separated</text><text x="30" y="278" fill="#746A61" font-family="Consolas,monospace" font-size="10">SOURCE · §1–§3</text><text x="500" y="278" text-anchor="end" fill="#746A61" font-family="Consolas,monospace" font-size="10">02</text></g>
-<g transform="translate(1200 12)"><rect width="540" height="304" rx="8" fill="#F3EFE6" stroke="#D5CDC1"/><text x="30" y="42" fill="#9F3F32" font-family="Consolas,monospace" font-size="10" letter-spacing="2">CONCLUSION</text><text x="30" y="90" fill="#231F1B" font-family="Georgia,serif" font-size="29" font-weight="700">Strong evidence, bounded claims.</text><rect x="30" y="126" width="142" height="96" fill="#FAF7F0" stroke="#D5CDC1"/><rect x="190" y="126" width="142" height="96" fill="#FAF7F0" stroke="#D5CDC1"/><rect x="350" y="126" width="142" height="96" fill="#FAF7F0" stroke="#D5CDC1"/><text x="44" y="150" fill="#9F3F32" font-family="Consolas,monospace" font-size="9">DEMONSTRATED</text><text x="44" y="176" fill="#231F1B" font-family="Segoe UI,Arial" font-size="12">attention-only</text><text x="44" y="193" fill="#231F1B" font-family="Segoe UI,Arial" font-size="12">transduction stack</text><text x="204" y="150" fill="#6D7458" font-family="Consolas,monospace" font-size="9">MEASURED</text><text x="204" y="176" fill="#231F1B" font-family="Segoe UI,Arial" font-size="12">WMT14 translation</text><text x="204" y="193" fill="#231F1B" font-family="Segoe UI,Arial" font-size="12">quality + training</text><text x="364" y="150" fill="#9F3F32" font-family="Consolas,monospace" font-size="9">NOT CLAIMED</text><text x="364" y="176" fill="#231F1B" font-family="Segoe UI,Arial" font-size="12">later historical</text><text x="364" y="193" fill="#231F1B" font-family="Segoe UI,Arial" font-size="12">impact</text><text x="30" y="278" fill="#746A61" font-family="Consolas,monospace" font-size="10">SOURCE · §7 · evidence boundary retained</text><text x="500" y="278" text-anchor="end" fill="#746A61" font-family="Consolas,monospace" font-size="10">03</text></g>
+<svg width="1740" height="390" viewBox="0 0 1740 390" xmlns="http://www.w3.org/2000/svg">
+<rect width="1740" height="390" fill="transparent"/>
+<style>
+ .paper{fill:#F3EFE6;stroke:#D5CDC1;stroke-width:1}
+ .k{font:600 10px 'IBM Plex Mono','Consolas',monospace;letter-spacing:2px;fill:#9F3F32}
+ .h{font-family:'Cormorant Garamond','Georgia','Times New Roman',serif;fill:#231F1B}
+ .b{font-family:'Source Sans 3','Segoe UI',Arial,sans-serif;fill:#4F4740}
+ .m{font-family:'IBM Plex Mono','Consolas',monospace;fill:#746A61}
+ .it{font-family:'Cormorant Garamond','Georgia','Times New Roman',serif;font-style:italic;fill:#6D6259}
+</style>
+<g transform="translate(0 15)">
+<rect class="paper" width="540" height="350" rx="6"/>
+<text class="k" x="30" y="38">A READING OF THE TRANSFORMER</text>
+<text class="h" x="30" y="120" font-size="51" font-weight="700">Attention Is</text>
+<text class="h" x="30" y="170" font-size="51" font-weight="700">All You Need</text>
+<line x1="30" y1="199" x2="172" y2="199" stroke="#9F3F32" stroke-width="2"/>
+<text class="it" x="30" y="229" font-size="16">Architecture, evidence,</text>
+<text class="it" x="30" y="251" font-size="16">and what the paper actually claims.</text>
+<text class="m" x="30" y="316" font-size="10">VASWANI ET AL. · 2017</text>
+<text class="m" x="510" y="316" text-anchor="end" font-size="10">01</text>
+</g>
+<g transform="translate(600 15)">
+<rect class="paper" width="540" height="350" rx="6"/>
+<text class="k" x="30" y="38">ARGUMENT</text>
+<text class="h" x="30" y="86" font-size="30" font-weight="700">The design removes recurrence</text>
+<text class="h" x="30" y="116" font-size="30" font-weight="700">from the stack.</text>
+<line x1="30" y1="141" x2="510" y2="141" stroke="#D5CDC1"/>
+<text class="b" x="30" y="177" font-size="13">Self-attention routes dependencies directly</text>
+<text class="b" x="30" y="198" font-size="13">across positions while the encoder–decoder</text>
+<text class="b" x="30" y="219" font-size="13">structure remains intact.</text>
+<text class="it" x="30" y="260" font-size="16">The narrative change is architectural,</text>
+<text class="it" x="30" y="281" font-size="16">not a license to overstate later impact.</text>
+<line x1="358" y1="160" x2="358" y2="286" stroke="#D5CDC1"/>
+<text class="m" x="382" y="178" font-size="9" fill="#9F3F32">REPORTED</text>
+<text class="b" x="382" y="199" font-size="11">attention-only</text>
+<text class="b" x="382" y="216" font-size="11">transduction stack</text>
+<text class="m" x="382" y="248" font-size="9" fill="#6D7458">INTERPRETATION</text>
+<text class="b" x="382" y="269" font-size="11">historical framing</text>
+<text class="b" x="382" y="286" font-size="11">kept separate</text>
+<text class="m" x="30" y="316" font-size="10">SOURCE · §1–§3</text>
+<text class="m" x="510" y="316" text-anchor="end" font-size="10">02</text>
+</g>
+<g transform="translate(1200 15)">
+<rect class="paper" width="540" height="350" rx="6"/>
+<text class="k" x="30" y="38">CONCLUSION</text>
+<text class="h" x="30" y="86" font-size="30" font-weight="700">Strong evidence, bounded claims.</text>
+<text class="it" x="30" y="116" font-size="15">Separate what was demonstrated from what came later.</text>
+<line x1="30" y1="143" x2="510" y2="143" stroke="#D5CDC1"/>
+<line x1="190" y1="163" x2="190" y2="275" stroke="#D5CDC1"/>
+<line x1="350" y1="163" x2="350" y2="275" stroke="#D5CDC1"/>
+<text class="m" x="30" y="181" font-size="9" fill="#9F3F32">DEMONSTRATED</text>
+<text class="h" x="30" y="215" font-size="20" font-weight="700">Attention-only</text>
+<text class="h" x="30" y="238" font-size="20" font-weight="700">transduction</text>
+<text class="b" x="30" y="262" font-size="11">encoder–decoder stack</text>
+<text class="m" x="212" y="181" font-size="9" fill="#6D7458">MEASURED</text>
+<text class="h" x="212" y="215" font-size="20" font-weight="700">WMT14 quality</text>
+<text class="h" x="212" y="238" font-size="20" font-weight="700">+ training</text>
+<text class="b" x="212" y="262" font-size="11">reported in the paper</text>
+<text class="m" x="372" y="181" font-size="9" fill="#9F3F32">NOT CLAIMED</text>
+<text class="h" x="372" y="215" font-size="20" font-weight="700">Later historical</text>
+<text class="h" x="372" y="238" font-size="20" font-weight="700">impact</text>
+<text class="b" x="372" y="262" font-size="11">outside 2017 evidence</text>
+<text class="m" x="30" y="316" font-size="10">SOURCE · §7 · EVIDENCE BOUNDARY</text>
+<text class="m" x="510" y="316" text-anchor="end" font-size="10">03</text>
+</g>
 </svg>
