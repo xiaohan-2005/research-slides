@@ -2,7 +2,7 @@
 <rect width="1740" height="390" fill="transparent"/>
 <style>
  .bg{fill:#08111C;stroke:#26384A;stroke-width:1}
- .k{font:600 10px 'IBM Plex Mono','Consolas',monospace;letter-spacing:2px;fill:#53D6C5}
+ .k{font:600 12px 'IBM Plex Mono','Consolas',monospace;letter-spacing:2px;fill:#53D6C5}
  .h{font-family:'Space Grotesk','Segoe UI',Arial,sans-serif;fill:#F4F7FA;font-weight:700}
  .b{font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;fill:#CAD5DF}
  .m{font-family:'IBM Plex Mono','Consolas',monospace;fill:#91A1B2}
@@ -13,20 +13,20 @@
 <text class="k" x="30" y="38">MODEL STUDY · 2017</text>
 <text class="h" x="30" y="116" font-size="49">Attention Is</text>
 <text class="h" x="30" y="164" font-size="49">All You Need</text>
-<text class="b" x="30" y="198" font-size="14">Architecture, equations, and evidence.</text>
+<text class="b" x="30" y="198" font-size="15">Architecture, equations, and evidence.</text>
 <path d="M362 88 C426 96 463 132 468 178 C472 218 451 252 398 278" fill="none" stroke="#365069" stroke-width="1.4"/>
 <path d="M362 88 C408 100 431 130 436 168" fill="none" stroke="#53D6C5" stroke-width="2.4"/>
 <path d="M436 168 C442 210 430 239 398 278" fill="none" stroke="#F2B84B" stroke-width="2.4"/>
 <circle cx="362" cy="88" r="6" fill="#53D6C5"/>
 <circle cx="436" cy="168" r="8" fill="#101B2A" stroke="#53D6C5"/>
 <circle cx="398" cy="278" r="6" fill="#F2B84B"/>
-<text class="m" x="30" y="316" font-size="10">SOURCE · VASWANI ET AL. · TITLE + ABSTRACT</text>
+<text class="m" x="30" y="316" font-size="12">SOURCE · VASWANI ET AL. · TITLE + ABSTRACT</text>
 </g>
 <g transform="translate(600 15)">
 <rect class="bg" width="540" height="350" rx="6"/>
 <text class="k" x="30" y="38">MECHANISM · EQ. 1</text>
 <text class="h" x="30" y="82" font-size="29">Scaled dot-product attention</text>
-<text class="b" x="30" y="108" font-size="12">One mechanism, three semantic anchors.</text>
+<text class="b" x="30" y="108" font-size="14">One mechanism, three semantic anchors.</text>
 <text class="math" x="36" y="184" font-size="24">Attention(Q,K,V) = softmax</text>
 <text class="math" x="338" y="184" font-size="42">(</text>
 <text class="math" x="371" y="157" font-size="24">QK</text>
@@ -42,32 +42,32 @@
 <circle cx="130" cy="234" r="4" fill="#53D6C5"/>
 <circle cx="324" cy="234" r="4" fill="#657789"/>
 <circle cx="462" cy="234" r="4" fill="#F2B84B"/>
-<text class="m" x="130" y="262" text-anchor="middle" font-size="10" fill="#53D6C5">COMPATIBILITY</text>
-<text class="m" x="324" y="262" text-anchor="middle" font-size="10">SCALE</text>
-<text class="m" x="462" y="262" text-anchor="middle" font-size="10" fill="#F2B84B">VALUES</text>
-<text class="m" x="30" y="316" font-size="10">SOURCE · §3.2.1 · EQ. (1)</text>
+<text class="m" x="130" y="262" text-anchor="middle" font-size="12" fill="#53D6C5">COMPATIBILITY</text>
+<text class="m" x="324" y="262" text-anchor="middle" font-size="12">SCALE</text>
+<text class="m" x="462" y="262" text-anchor="middle" font-size="12" fill="#F2B84B">VALUES</text>
+<text class="m" x="30" y="316" font-size="12">SOURCE · §3.2.1 · EQ. (1)</text>
 </g>
 <g transform="translate(1200 15)">
 <rect class="bg" width="540" height="350" rx="6"/>
 <text class="k" x="30" y="38">RESULTS · WMT14</text>
 <text class="h" x="30" y="82" font-size="29">Reported gains, shared scale</text>
-<text class="b" x="30" y="108" font-size="12">Baseline stays visible; evidence gets the accent.</text>
-<text class="m" x="30" y="151" font-size="10">EN→DE BLEU</text>
+<text class="b" x="30" y="108" font-size="14">Baseline stays visible; evidence gets the accent.</text>
+<text class="m" x="30" y="151" font-size="12">EN→DE BLEU</text>
 <line x1="120" y1="166" x2="475" y2="166" stroke="#365069" stroke-width="2"/>
 <circle cx="235" cy="166" r="7" fill="#657789"/>
 <circle cx="442" cy="166" r="9" fill="#53D6C5"/>
-<text class="m" x="235" y="149" text-anchor="middle" font-size="10">26.36</text>
-<text class="m" x="442" y="149" text-anchor="middle" font-size="10" fill="#53D6C5">28.40</text>
-<text class="m" x="30" y="218" font-size="10">EN→FR BLEU</text>
+<text class="m" x="235" y="149" text-anchor="middle" font-size="12">26.36</text>
+<text class="m" x="442" y="149" text-anchor="middle" font-size="12" fill="#53D6C5">28.40</text>
+<text class="m" x="30" y="218" font-size="12">EN→FR BLEU</text>
 <line x1="120" y1="233" x2="475" y2="233" stroke="#365069" stroke-width="2"/>
 <circle cx="390" cy="233" r="7" fill="#657789"/>
 <circle cx="455" cy="233" r="9" fill="#F2B84B"/>
-<text class="m" x="390" y="216" text-anchor="middle" font-size="10">40.56</text>
-<text class="m" x="455" y="216" text-anchor="middle" font-size="10" fill="#F2B84B">41.00</text>
+<text class="m" x="390" y="216" text-anchor="middle" font-size="12">40.56</text>
+<text class="m" x="455" y="216" text-anchor="middle" font-size="12" fill="#F2B84B">41.00</text>
 <line x1="30" y1="275" x2="510" y2="275" stroke="#26384A"/>
-<text class="m" x="30" y="299" font-size="10">BASELINE</text>
-<text class="m" x="110" y="299" font-size="10" fill="#53D6C5">PRIMARY METHOD</text>
-<text class="m" x="245" y="299" font-size="10" fill="#F2B84B">EVIDENCE HIGHLIGHT</text>
-<text class="m" x="30" y="326" font-size="10">SOURCE · §6.1 · TABLE 2</text>
+<text class="m" x="30" y="299" font-size="12">BASELINE</text>
+<text class="m" x="126" y="299" font-size="12" fill="#53D6C5">PRIMARY METHOD</text>
+<text class="m" x="286" y="299" font-size="12" fill="#F2B84B">EVIDENCE HIGHLIGHT</text>
+<text class="m" x="30" y="326" font-size="12">SOURCE · §6.1 · TABLE 2</text>
 </g>
 </svg>
