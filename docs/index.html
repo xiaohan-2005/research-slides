@@ -1,2 +1,41 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research Slides</title><style>body{margin:0;background:#0b1020;color:#fff;font-family:Inter,Arial,sans-serif;display:grid;place-items:center;min-height:100vh}.box{max-width:900px;padding:60px;text-align:center}h1{font-size:64px;margin:0 0 20px}p{font-size:24px;color:#cbd5e1;line-height:1.5}a{display:inline-block;margin-top:30px;padding:14px 26px;border-radius:999px;background:#5eead4;color:#07111f;text-decoration:none;font-weight:800}</style></head><body><div class="box"><h1>Research Slides</h1><p>Turn papers, data and research notes into beautiful, citation-aware presentations.</p><a href="../examples/attention-is-all-you-need/presentation.html">Open Transformer Demo</a></div></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Research Slides — turn papers, data and research notes into citation-aware presentations." />
+<title>Research Slides</title>
+<style>
+:root{--bg:#090f1f;--panel:#101a33;--text:#f7f9fc;--muted:#a8b3c7;--teal:#5eead4;--blue:#8facff;--line:rgba(255,255,255,.12)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}body{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 80% 10%,rgba(36,87,214,.22),transparent 34%),radial-gradient(circle at 15% 90%,rgba(15,118,110,.2),transparent 34%),var(--bg)}
+main{width:min(1080px,calc(100% - 40px));padding:70px 0}.eyebrow{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:800}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}.hero h1{font-family:Georgia,serif;font-size:72px;line-height:.98;letter-spacing:-.045em;margin:18px 0 24px}.hero p{font-size:22px;line-height:1.55;color:var(--muted);max-width:680px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:800}.primary{background:var(--teal);color:#07111f}.secondary{border:1px solid var(--line);color:var(--text)}.card{border:1px solid var(--line);background:rgba(16,26,51,.72);border-radius:24px;padding:30px;box-shadow:0 30px 80px rgba(0,0,0,.25)}.card h2{font-family:Georgia,serif;font-size:34px;margin:0 0 12px}.card p{font-size:16px;line-height:1.55;margin:0}.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}.fact{border:1px solid var(--line);border-radius:14px;padding:15px}.fact b{display:block;color:var(--blue);font-size:24px;margin-bottom:4px}.fact span{font-size:13px;color:var(--muted)}footer{margin-top:54px;padding-top:20px;border-top:1px solid var(--line);color:#748197;font-size:13px}@media(max-width:780px){.hero{grid-template-columns:1fr}.hero h1{font-size:54px}main{padding:44px 0}}
+</style>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <section>
+      <div class="eyebrow">Agent-first academic presentations</div>
+      <h1>Research<br/>Slides</h1>
+      <p>Turn papers, data and research notes into beautiful, citation-aware presentations—without losing the evidence behind the story.</p>
+      <div class="actions">
+        <a class="btn primary" href="./demo.html">Open Transformer Demo →</a>
+        <a class="btn secondary" href="https://github.com/xiaohan-2005/research-slides">View Repository</a>
+      </div>
+    </section>
+    <aside class="card">
+      <div class="eyebrow">First demo</div>
+      <h2>Attention Is All You Need</h2>
+      <p>A 12-slide research walkthrough with original visuals and slide-level source mapping.</p>
+      <div class="facts">
+        <div class="fact"><b>12</b><span>research slides</span></div>
+        <div class="fact"><b>16:9</b><span>fixed stage</span></div>
+        <div class="fact"><b>0</b><span>runtime dependencies</span></div>
+        <div class="fact"><b>✓</b><span>citation mapped</span></div>
+      </div>
+    </aside>
+  </div>
+  <footer>research-slides · evidence before confidence · visuals before walls of text</footer>
+</main>
+</body>
+</html>
