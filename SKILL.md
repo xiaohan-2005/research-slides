@@ -494,6 +494,7 @@ After validation:
 | `animation-patterns.md` | motion patterns appropriate for research decks | generation |
 | `SLIDE_SYSTEM.md` | research narrative and slide composition heuristics | narrative + generation |
 | `scripts/validate_slides.py` | deterministic structural checks | validation before rendered visual review |
+| `examples/chengdu-fresh-market-defense/README.md` | verified Chinese market-survey competition-defense case with source paper and standalone deck | when a survey-research or live competition benchmark would help |
 
 ## Progressive-Disclosure Failure Conditions
 

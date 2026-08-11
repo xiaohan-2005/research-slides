@@ -12,7 +12,7 @@
 
 **Codex-first · claim-aware · citation-aware · fixed 16:9**
 
-[**Start with the Skill**](SKILL.md) · [**Explore the Attention test case**](examples/attention-is-all-you-need/README.md) · [**Read the validation report**](examples/attention-is-all-you-need/validation/report.md)
+[**Start with the Skill**](SKILL.md) · [**Competition defense case**](examples/chengdu-fresh-market-defense/README.md) · [**Technical paper case**](examples/attention-is-all-you-need/README.md)
 
 </div>
 
@@ -37,7 +37,7 @@ It is a Codex-first Agent Skill for academic and technical presentations. Instea
 | | Goal | Start here |
 | --- | --- | --- |
 | **USE** | Run the workflow with Codex | [`SKILL.md`](SKILL.md) |
-| **TRY** | Inspect a real paper-to-deck test case | [`Attention Is All You Need`](examples/attention-is-all-you-need/README.md) |
+| **TRY** | Inspect real paper-to-deck test cases | [`Chengdu fresh-market defense`](examples/chengdu-fresh-market-defense/README.md) · [`Attention Is All You Need`](examples/attention-is-all-you-need/README.md) |
 | **UNDERSTAND** | See how evidence stays traceable | [`claim-ledger.md`](examples/attention-is-all-you-need/analysis/claim-ledger.md) → [`evidence-map.md`](examples/attention-is-all-you-need/analysis/evidence-map.md) |
 | **VERIFY** | Inspect what passed and what is still pending | [`validation/report.md`](examples/attention-is-all-you-need/validation/report.md) |
 
@@ -210,6 +210,13 @@ research-slides/
 │   └── validate_slides.py
 │
 └── examples/
+    ├── chengdu-fresh-market-defense/
+    │   ├── README.md
+    │   ├── source-paper.pdf
+    │   ├── analysis/evidence-map.md
+    │   ├── output/presentation.html
+    │   ├── preview/
+    │   └── validation/report.md
     └── attention-is-all-you-need/
         ├── README.md
         ├── slide-outline.md
@@ -240,7 +247,30 @@ research-slides/
 
 ---
 
-## End-to-end test case
+## End-to-end test cases
+
+### Competition defense — Chengdu community fresh market
+
+<img src="examples/chengdu-fresh-market-defense/preview/cover.png" width="100%" alt="Chengdu community fresh market competition defense case" />
+
+This case converts a 100-page Chinese national first-prize market-research paper into a 14-slide, speaker-led competition defense deck.
+
+It demonstrates:
+
+- mixed C-side consumer and B-side merchant evidence;
+- direct-labeled survey charts and fieldwork imagery;
+- explicit handling of a response-rate inconsistency in the source;
+- strategy slides clearly labeled as interpretation;
+- a standalone HTML output with embedded fonts and research assets;
+- completed desktop and phone fixed-stage validation.
+
+Useful entry points:
+
+- [`case README`](examples/chengdu-fresh-market-defense/README.md)
+- [`standalone HTML deck`](examples/chengdu-fresh-market-defense/output/presentation.html)
+- [`original national first-prize paper`](examples/chengdu-fresh-market-defense/source-paper.pdf)
+- [`slide-level evidence map`](examples/chengdu-fresh-market-defense/analysis/evidence-map.md)
+- [`validation report`](examples/chengdu-fresh-market-defense/validation/report.md)
 
 ### Attention Is All You Need
 
@@ -335,6 +365,7 @@ Completed:
 - [x] static slide validator
 - [x] first traceable paper-to-deck test case
 - [x] Attention canonical deck migrated to Neural Lab
+- [x] competition-defense case with original paper, standalone deck and phone QA
 
 Next engineering priorities:
 
