@@ -60,7 +60,7 @@ Keep every important quantitative claim traceable to its source.
 Show me three real title-slide previews before building the full deck.
 ```
 
-> This repository is currently alpha. The workflow is usable, while the example suite, extraction tooling and rendered-browser validation are still being expanded.
+> This repository is currently alpha. The workflow is usable, while extraction tooling and browser-level validation are still being expanded.
 
 ---
 
@@ -116,6 +116,42 @@ generate the full deck
 
 The preview slides use the user's **real title and context**. They must not expose internal labels such as `Option A`, template names, file paths or workflow metadata.
 
+---
+
+## Research Style Gallery
+
+The gallery is for people; the runtime design files are for Codex. Each visual direction below is backed by a real `preview.md + design.md` pair in the template pack.
+
+### Neural Lab
+
+<img src="assets/style-gallery/neural-lab.svg" width="100%" alt="Neural Lab research presentation style gallery" />
+
+> Dark computational research field · architecture, equations, ablations, model evidence · cyan logic + amber evidence.
+
+### Scientific Minimal
+
+<img src="assets/style-gallery/scientific-minimal.svg" width="100%" alt="Scientific Minimal research presentation style gallery" />
+
+> Publication-adjacent light system · figure-first composition · serif statements, hairline rules, restrained scientific annotation.
+
+### Data Atlas
+
+<img src="assets/style-gallery/data-atlas.svg" width="100%" alt="Data Atlas research presentation style gallery" />
+
+> Quantitative research system · direct labels, visible baselines, uncertainty-aware charts, exact comparisons.
+
+### Editorial Academic
+
+<img src="assets/style-gallery/editorial-academic.svg" width="100%" alt="Editorial Academic research presentation style gallery" />
+
+> Warm scholarly editorial system · conceptual argument, literature review, policy analysis, source-led narrative.
+
+These are deliberately different **visual grammars**, not one template with four accent palettes.
+
+[`Browse the template pack →`](research-template-pack/README.md)
+
+---
+
 ### Fixed-stage presentation runtime
 
 Every final deck is authored at exactly **1920×1080** and scales as one stage.
@@ -150,9 +186,25 @@ research-slides/
 │   ├── README.md
 │   ├── selection-index.json
 │   └── templates/
-│       └── neural-lab/
+│       ├── neural-lab/
+│       │   ├── preview.md
+│       │   └── design.md
+│       ├── scientific-minimal/
+│       │   ├── preview.md
+│       │   └── design.md
+│       ├── data-atlas/
+│       │   ├── preview.md
+│       │   └── design.md
+│       └── editorial-academic/
 │           ├── preview.md
 │           └── design.md
+│
+├── assets/
+│   └── style-gallery/
+│       ├── neural-lab.svg
+│       ├── scientific-minimal.svg
+│       ├── data-atlas.svg
+│       └── editorial-academic.svg
 │
 ├── scripts/
 │   └── validate_slides.py
@@ -201,7 +253,7 @@ It includes:
 - a slide-level evidence map;
 - source-aware equations and quantitative results;
 - original explanatory HTML/CSS/SVG visuals;
-- a canonical 1920×1080 output;
+- a canonical Neural Lab 1920×1080 output;
 - a validation report that records passes, failures and pending checks.
 
 Useful entry points:
@@ -215,13 +267,15 @@ Useful entry points:
 Current status:
 
 ```text
-Evidence validation      PASS
-Structural validation    PASS by source inspection
-Rendered visual review   PENDING
-Release-ready             NO
+Evidence validation          PASS
+Static validator             PASS — executed
+Neural Lab migration         COMPLETE
+Static rendered visual QA    PASS
+Browser interaction QA       PENDING
+Release-ready                 NO
 ```
 
-The example is intentionally not labeled release-ready until every slide has been inspected in a rendered browser.
+The example stays non-release-ready until browser-level interaction and viewport behavior are verified in an unrestricted browser environment.
 
 ---
 
@@ -273,22 +327,24 @@ Completed:
 - [x] repository `AGENTS.md`
 - [x] research-integrity rules
 - [x] progressive visual discovery engine
-- [x] first implementation-grade research template (`neural-lab`)
+- [x] four implementation-grade research visual systems
+- [x] public Research Style Gallery
 - [x] fixed 1920×1080 stage contract
 - [x] HTML presentation architecture
 - [x] research animation guidance
 - [x] static slide validator
 - [x] first traceable paper-to-deck test case
+- [x] Attention canonical deck migrated to Neural Lab
 
 Next engineering priorities:
 
 - [ ] browser-based visual validation automation
-- [ ] migrate the Attention test deck fully onto the selected Neural Lab design system
 - [ ] PDF structure / figure extraction
 - [ ] machine-readable claim/source schema
 - [ ] citation verification tooling
 - [ ] data / notebook → research deck workflow
 - [ ] additional test cases with different research structures
+- [ ] expand the gallery only with genuinely different research design grammars
 
 ## Design philosophy
 
