@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Research Slides Demo</title>
+<style>
+html,body{margin:0;width:100%;height:100%;background:#0a0f1d;color:#fff;font-family:Arial,sans-serif;display:grid;place-items:center}
+main{text-align:center;max-width:720px;padding:40px}h1{font-size:42px;margin:0 0 16px}p{color:#cbd5e1;font-size:18px;line-height:1.5}.small{font-size:14px;color:#94a3b8}
+</style>
+</head>
+<body>
+<main id="status">
+  <h1>Loading research demo…</h1>
+  <p>Fetching the canonical presentation from the repository.</p>
+</main>
+<script>
+(async()=>{
+  const raw='https://raw.githubusercontent.com/xiaohan-2005/research-slides/main/examples/attention-is-all-you-need/presentation.html';
+  try{
+    const r=await fetch(raw,{cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const html=await r.text();
+    document.open();document.write(html);document.close();
+  }catch(err){
+    document.getElementById('status').innerHTML='<h1>Demo could not load</h1><p>Please open the presentation directly from the GitHub repository.</p><p class="small">'+String(err)+'</p>';
+  }
+})();
+</script>
+</body>
+</html>
