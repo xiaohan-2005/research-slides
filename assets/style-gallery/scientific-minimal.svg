@@ -1,6 +1,83 @@
-<svg width="1740" height="330" viewBox="0 0 1740 330" xmlns="http://www.w3.org/2000/svg">
-<rect width="1740" height="330" fill="transparent"/>
-<g transform="translate(0 12)"><rect width="540" height="304" rx="8" fill="#F7F7F4" stroke="#D8DBDF"/><text x="30" y="42" fill="#315E8A" font-family="Consolas,monospace" font-size="10" letter-spacing="2">SCIENTIFIC PRESENTATION</text><text x="30" y="120" fill="#171717" font-family="Georgia,serif" font-size="46" font-weight="700">Attention Is</text><text x="30" y="168" fill="#171717" font-family="Georgia,serif" font-size="46" font-weight="700">All You Need</text><text x="30" y="205" fill="#667085" font-family="Segoe UI,Arial" font-size="14">Architecture, mechanism, and evidence from the 2017 paper</text><path d="M380 88C430 88 430 132 478 132" stroke="#315E8A" stroke-width="2" fill="none"/><circle cx="380" cy="88" r="8" fill="#315E8A"/><circle cx="478" cy="132" r="8" fill="#2E7D64"/><line x1="30" y1="258" x2="510" y2="258" stroke="#D8DBDF"/><text x="30" y="280" fill="#667085" font-family="Segoe UI,Arial" font-size="10">Vaswani et al. · NIPS 2017</text></g>
-<g transform="translate(600 12)"><rect width="540" height="304" rx="8" fill="#F7F7F4" stroke="#D8DBDF"/><text x="30" y="42" fill="#315E8A" font-family="Consolas,monospace" font-size="10" letter-spacing="2">ARCHITECTURE</text><text x="30" y="78" fill="#171717" font-family="Georgia,serif" font-size="25" font-weight="700">Encoder–decoder, stacked six times</text><rect x="42" y="112" width="170" height="34" rx="3" fill="#EAF0F5" stroke="#315E8A"/><rect x="42" y="158" width="170" height="34" rx="3" fill="#FFFFFF" stroke="#D8DBDF"/><rect x="42" y="204" width="170" height="34" rx="3" fill="#E7F1ED" stroke="#2E7D64"/><rect x="326" y="112" width="170" height="34" rx="3" fill="#F6EADF" stroke="#B36A2E"/><rect x="326" y="158" width="170" height="34" rx="3" fill="#EAF0F5" stroke="#315E8A"/><rect x="326" y="204" width="170" height="34" rx="3" fill="#E7F1ED" stroke="#2E7D64"/><text x="127" y="134" text-anchor="middle" fill="#171717" font-family="Segoe UI,Arial" font-size="11">self-attention</text><text x="127" y="180" text-anchor="middle" fill="#171717" font-family="Segoe UI,Arial" font-size="11">layer norm</text><text x="127" y="226" text-anchor="middle" fill="#171717" font-family="Segoe UI,Arial" font-size="11">feed-forward</text><text x="411" y="134" text-anchor="middle" fill="#171717" font-family="Segoe UI,Arial" font-size="11">masked attention</text><text x="411" y="180" text-anchor="middle" fill="#171717" font-family="Segoe UI,Arial" font-size="11">cross-attention</text><text x="411" y="226" text-anchor="middle" fill="#171717" font-family="Segoe UI,Arial" font-size="11">feed-forward</text><path d="M220 175H316" stroke="#667085"/><path d="M309 169L317 175L309 181" fill="none" stroke="#667085"/><line x1="30" y1="258" x2="510" y2="258" stroke="#D8DBDF"/><text x="30" y="280" fill="#667085" font-family="Segoe UI,Arial" font-size="10">SOURCE · §3.1 + §3.3 · explanatory redraw</text></g>
-<g transform="translate(1200 12)"><rect width="540" height="304" rx="8" fill="#F7F7F4" stroke="#D8DBDF"/><text x="30" y="42" fill="#315E8A" font-family="Consolas,monospace" font-size="10" letter-spacing="2">EQUATION</text><text x="30" y="78" fill="#171717" font-family="Georgia,serif" font-size="25" font-weight="700">Scaled dot-product attention</text><text x="54" y="146" fill="#171717" font-family="Georgia,serif" font-size="25">softmax(QKᵀ / √dₖ) V</text><line x1="54" y1="166" x2="450" y2="166" stroke="#D8DBDF"/><text x="54" y="204" fill="#315E8A" font-family="Segoe UI,Arial" font-size="12">compatibility</text><text x="210" y="204" fill="#667085" font-family="Segoe UI,Arial" font-size="12">scale</text><text x="325" y="204" fill="#2E7D64" font-family="Segoe UI,Arial" font-size="12">weighted values</text><line x1="30" y1="258" x2="510" y2="258" stroke="#D8DBDF"/><text x="30" y="280" fill="#667085" font-family="Segoe UI,Arial" font-size="10">SOURCE · §3.2.1 · Eq. (1)</text></g>
+<svg width="1740" height="390" viewBox="0 0 1740 390" xmlns="http://www.w3.org/2000/svg">
+<rect width="1740" height="390" fill="transparent"/>
+<style>
+  .paper{fill:#F8F7F2;stroke:#D9D7D0;stroke-width:1}
+  .k{font:600 10px 'IBM Plex Mono','Consolas',monospace;letter-spacing:2px;fill:#315E8A}
+  .h{font-family:'Source Serif 4','Georgia','Times New Roman',serif;fill:#111418}
+  .b{font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;fill:#404851}
+  .m{font-family:'IBM Plex Mono','Consolas',monospace;fill:#6B7280}
+  .it{font-family:'Source Serif 4','Georgia','Times New Roman',serif;font-style:italic;fill:#52606B}
+</style>
+<g transform="translate(0 15)">
+<rect class="paper" width="540" height="350" rx="6"/>
+<text class="k" x="30" y="38">SCIENTIFIC PRESENTATION</text>
+<text class="h" x="30" y="118" font-size="51" font-weight="700">Attention Is</text>
+<text class="h" x="30" y="168" font-size="51" font-weight="700">All You Need</text>
+<line x1="30" y1="194" x2="160" y2="194" stroke="#315E8A" stroke-width="2"/>
+<text class="it" x="30" y="226" font-size="16">Architecture, mechanism, and evidence</text>
+<text class="it" x="30" y="248" font-size="16">from the 2017 paper</text>
+<path d="M382 94 C446 106 463 154 466 194 C468 230 446 259 392 274" fill="none" stroke="#758B83" stroke-width="1.5" stroke-dasharray="3 5"/>
+<circle cx="382" cy="94" r="7" fill="#315E8A"/>
+<circle cx="466" cy="194" r="10" fill="#2E7D64"/>
+<circle cx="392" cy="274" r="6" fill="#93A39B"/>
+<line x1="30" y1="304" x2="510" y2="304" stroke="#D9D7D0"/>
+<text class="m" x="30" y="329" font-size="10">VASWANI ET AL. · NIPS 2017</text>
+<text class="m" x="510" y="329" text-anchor="end" font-size="10">TITLE</text>
+</g>
+<g transform="translate(600 15)">
+<rect class="paper" width="540" height="350" rx="6"/>
+<text class="k" x="30" y="38">ARCHITECTURE</text>
+<text class="h" x="30" y="80" font-size="27" font-weight="700">Encoder–decoder,</text>
+<text class="h" x="30" y="108" font-size="27" font-weight="700">stacked six times</text>
+<text class="b" x="30" y="132" font-size="11">A restrained redraw: structure first, decoration last.</text>
+<path d="M54 147 h-8 v124 h8" fill="none" stroke="#315E8A" stroke-width="1.2"/>
+<text class="m" x="30" y="213" font-size="12">×6</text>
+<path d="M486 147 h8 v124 h-8" fill="none" stroke="#315E8A" stroke-width="1.2"/>
+<text class="m" x="503" y="213" font-size="12">×6</text>
+<rect x="68" y="146" width="164" height="34" rx="3" fill="#EAF0F5" stroke="#A9BAC8"/>
+<rect x="68" y="192" width="164" height="34" rx="3" fill="#F3F2EE" stroke="#D6D3CB"/>
+<rect x="68" y="238" width="164" height="34" rx="3" fill="#E8F1ED" stroke="#9BB9AD"/>
+<text class="b" x="150" y="168" text-anchor="middle" font-size="11">self-attention</text>
+<text class="b" x="150" y="214" text-anchor="middle" font-size="11">layer norm</text>
+<text class="b" x="150" y="260" text-anchor="middle" font-size="11">feed-forward</text>
+<rect x="308" y="146" width="164" height="34" rx="3" fill="#F1ECE2" stroke="#C9AC83"/>
+<rect x="308" y="192" width="164" height="34" rx="3" fill="#EAF0F5" stroke="#A9BAC8"/>
+<rect x="308" y="238" width="164" height="34" rx="3" fill="#E8F1ED" stroke="#9BB9AD"/>
+<text class="b" x="390" y="168" text-anchor="middle" font-size="11">masked attention</text>
+<text class="b" x="390" y="214" text-anchor="middle" font-size="11">cross-attention</text>
+<text class="b" x="390" y="260" text-anchor="middle" font-size="11">feed-forward</text>
+<path d="M238 208 H296" stroke="#73808C" stroke-width="1.2"/>
+<path d="M290 203 L297 208 L290 213" fill="none" stroke="#73808C" stroke-width="1.2"/>
+<line x1="30" y1="304" x2="510" y2="304" stroke="#D9D7D0"/>
+<text class="m" x="30" y="329" font-size="10">SOURCE · §3.1 + §3.3 · EXPLANATORY REDRAW</text>
+</g>
+<g transform="translate(1200 15)">
+<rect class="paper" width="540" height="350" rx="6"/>
+<text class="k" x="30" y="38">EQUATION</text>
+<text class="h" x="30" y="86" font-size="30" font-weight="700">Scaled dot-product attention</text>
+<text class="b" x="30" y="111" font-size="12">One equation. Three semantic anchors.</text>
+<text class="h" x="35" y="184" font-size="24" font-style="italic">Attention(Q,K,V) = softmax</text>
+<text class="h" x="337" y="184" font-size="42">(</text>
+<text class="h" x="371" y="157" font-size="24" font-style="italic">QK</text>
+<text class="h" x="409" y="143" font-size="13" font-style="italic">T</text>
+<line x1="363" y1="166" x2="430" y2="166" stroke="#111418" stroke-width="1.3"/>
+<path d="M370 188 l7 8 l8 -22 h8" fill="none" stroke="#111418" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>
+<line x1="393" y1="174" x2="430" y2="174" stroke="#111418" stroke-width="1.2"/>
+<text class="h" x="397" y="193" font-size="22" font-style="italic">d</text>
+<text class="h" x="414" y="201" font-size="12" font-style="italic">k</text>
+<text class="h" x="440" y="184" font-size="42">)</text>
+<text class="h" x="474" y="184" font-size="25" font-style="italic">V</text>
+<line x1="135" y1="220" x2="135" y2="240" stroke="#315E8A"/>
+<circle cx="135" cy="220" r="3" fill="#315E8A"/>
+<text class="it" x="135" y="262" text-anchor="middle" font-size="14" fill="#315E8A">compatibility</text>
+<line x1="330" y1="220" x2="330" y2="240" stroke="#B38A54"/>
+<circle cx="330" cy="220" r="3" fill="#B38A54"/>
+<text class="it" x="330" y="262" text-anchor="middle" font-size="14" fill="#9A6B2E">scale</text>
+<line x1="468" y1="220" x2="468" y2="240" stroke="#2E7D64"/>
+<circle cx="468" cy="220" r="3" fill="#2E7D64"/>
+<text class="it" x="468" y="257" text-anchor="middle" font-size="13" fill="#2E7D64">weighted</text>
+<text class="it" x="468" y="273" text-anchor="middle" font-size="13" fill="#2E7D64">values</text>
+<line x1="30" y1="304" x2="510" y2="304" stroke="#D9D7D0"/>
+<text class="m" x="30" y="329" font-size="10">SOURCE · §3.2.1 · EQ. (1)</text>
+</g>
 </svg>
