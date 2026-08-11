@@ -1,0 +1,33 @@
+{
+  "templates": [
+    {
+      "slug": "neural-lab",
+      "name": "Neural Lab",
+      "mood": ["technical", "precise", "computational"],
+      "tone": ["confident", "modern", "research-driven"],
+      "formality": "medium-high",
+      "density": "medium",
+      "scheme": "dark",
+      "best_for": [
+        "machine learning papers",
+        "transformer architectures",
+        "systems research",
+        "algorithm presentations",
+        "technical tutorials"
+      ],
+      "avoid_for": [
+        "humanities presentations",
+        "warm editorial reviews",
+        "highly traditional institutional reports"
+      ],
+      "evidence_focus": [
+        "architecture diagrams",
+        "equations",
+        "ablation tables",
+        "model comparisons"
+      ],
+      "preview": "templates/neural-lab/preview.md",
+      "design": "templates/neural-lab/design.md"
+    }
+  ]
+}
