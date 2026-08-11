@@ -1,33 +1,65 @@
 {
+  "version": 1,
   "templates": [
     {
       "slug": "neural-lab",
       "name": "Neural Lab",
+      "tagline": "Dark computational research system for architecture, equations, and model evidence.",
       "mood": ["technical", "precise", "computational"],
       "tone": ["confident", "modern", "research-driven"],
       "formality": "medium-high",
       "density": "medium",
       "scheme": "dark",
-      "best_for": [
-        "machine learning papers",
-        "transformer architectures",
-        "systems research",
-        "algorithm presentations",
-        "technical tutorials"
-      ],
-      "avoid_for": [
-        "humanities presentations",
-        "warm editorial reviews",
-        "highly traditional institutional reports"
-      ],
-      "evidence_focus": [
-        "architecture diagrams",
-        "equations",
-        "ablation tables",
-        "model comparisons"
-      ],
+      "best_for": ["machine learning papers", "transformer architectures", "systems research", "algorithm presentations", "technical tutorials"],
+      "avoid_for": ["humanities presentations", "warm editorial reviews", "highly traditional institutional reports"],
+      "evidence_focus": ["architecture diagrams", "equations", "ablation tables", "model comparisons"],
       "preview": "templates/neural-lab/preview.md",
       "design": "templates/neural-lab/design.md"
+    },
+    {
+      "slug": "scientific-minimal",
+      "name": "Scientific Minimal",
+      "tagline": "Publication-adjacent light system for figures, equations, and exact scientific argument.",
+      "mood": ["calm", "precise", "clean"],
+      "tone": ["rigorous", "restrained", "publication-adjacent"],
+      "formality": "high",
+      "density": "medium",
+      "scheme": "light",
+      "best_for": ["experimental papers", "life sciences", "engineering", "thesis defenses", "figure-heavy research"],
+      "avoid_for": ["playful creative pitches", "high-energy product launches", "retro editorial concepts"],
+      "evidence_focus": ["source figures", "equations", "compact tables", "mechanism diagrams"],
+      "preview": "templates/scientific-minimal/preview.md",
+      "design": "templates/scientific-minimal/design.md"
+    },
+    {
+      "slug": "data-atlas",
+      "name": "Data Atlas",
+      "tagline": "Quantitative visual system for charts, uncertainty, benchmarking, and statistical evidence.",
+      "mood": ["analytical", "structured", "quantitative"],
+      "tone": ["modern", "evidence-forward", "disciplined"],
+      "formality": "medium-high",
+      "density": "medium-high",
+      "scheme": "light",
+      "best_for": ["statistics", "modeling", "experiments", "benchmarking", "survey research", "data-heavy reports"],
+      "avoid_for": ["quotation-led humanities talks", "purely conceptual reviews", "decorative brand presentations"],
+      "evidence_focus": ["charts", "uncertainty", "comparisons", "ablations", "tables"],
+      "preview": "templates/data-atlas/preview.md",
+      "design": "templates/data-atlas/design.md"
+    },
+    {
+      "slug": "editorial-academic",
+      "name": "Editorial Academic",
+      "tagline": "Warm scholarly editorial system for conceptual argument, reviews, and source-led narratives.",
+      "mood": ["thoughtful", "warm", "scholarly"],
+      "tone": ["editorial", "reflective", "high-formality"],
+      "formality": "high",
+      "density": "medium",
+      "scheme": "warm-light",
+      "best_for": ["literature reviews", "conceptual papers", "social sciences", "policy analysis", "thesis narratives"],
+      "avoid_for": ["dense systems architecture", "benchmark dashboards", "high-frequency technical telemetry"],
+      "evidence_focus": ["quotations", "conceptual diagrams", "source excerpts", "comparative arguments", "selected figures"],
+      "preview": "templates/editorial-academic/preview.md",
+      "design": "templates/editorial-academic/design.md"
     }
   ]
 }
