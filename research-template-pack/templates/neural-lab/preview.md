@@ -10,24 +10,60 @@
 
 ## Visual Snapshot
 
-A dark computational research environment inspired by machine learning labs and scientific visualization systems. The design treats the slide like an instrument panel for understanding a model, not a software dashboard.
+A dark computational editorial system for inspecting models and evidence. Deep navy canvas, large research statements, sparse structural lines, restrained cyan logic signals, and amber evidence highlights.
 
-The visual language combines a deep navy canvas, precise grid alignment, restrained cyan signals, monospace technical labels, and large readable research statements.
+The V2 direction intentionally removes unnecessary UI surfaces. It should feel like a computational research publication projected on a large stage—not a software dashboard, terminal theme, or cyberpunk interface.
 
 ## Preview Ingredients
 
-- Palette: deep navy background, graphite panels, cyan signal accent, warm amber evidence highlight
-- Typography: modern sans headlines with technical mono annotations
-- Signature move: architecture lines and evidence markers connecting concepts
-- Signature move: large equation/model terms with minimal annotation
-- Signature move: quiet technical atmosphere instead of gaming-style neon
+- Deep field: `#08111C`
+- Deeper stage: `#050B12`
+- Primary text: `#F4F7FA`
+- Soft text: `#CAD5DF`
+- Structural line: `#26384A`
+- Logic signal cyan: `#53D6C5`
+- Evidence amber: `#F2B84B`
+- Display: Space Grotesk / Aptos Display / Segoe UI
+- Body: IBM Plex Sans / Aptos / Segoe UI
+- Technical labels: IBM Plex Mono / Consolas
+
+Signature moves:
+
+- large statement plus sparse signal geometry;
+- thin coordinate/flow lines rather than card walls;
+- equations placed directly on the research field;
+- semantic baseline or leader lines for term explanation;
+- benchmark results shown on shared scales with the baseline still visible;
+- cyan always means model/logic flow;
+- amber always means evidence/comparison emphasis.
+
+Avoid:
+
+- glowing card grids;
+- fake terminal windows;
+- neon particles;
+- generic futuristic circuitry;
+- dashboard tiles;
+- multiple graphite panels when whitespace/lines can provide hierarchy;
+- giant metric numbers detached from the comparison that gives them meaning.
 
 ## Preview Rules
 
 - Create one real title slide at 1920×1080.
 - Use the user's actual research title.
-- Do not show template names, metadata, option labels, or workflow information.
-- Do not make it look like a template-selection page.
-- The result should look like the first slide of a finished AI research presentation.
+- Keep at least one large quiet region on the canvas.
+- Use one sparse architecture/signal motif instead of a boxed UI cluster.
+- Do not show template names, metadata, option labels, file paths, or workflow information.
+- The result should look like the opening slide of a finished AI research presentation.
+
+## Gallery Proof Rule
+
+Show three different slide jobs:
+
+1. title / computational thesis;
+2. equation / mechanism;
+3. result / evidence on a shared scale.
+
+At thumbnail scale, prefer lines, large type, and direct labels over panels and micro-copy.
 
 After selection, read the full `design.md` before generating the final deck.
