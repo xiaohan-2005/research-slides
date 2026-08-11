@@ -2,7 +2,7 @@
 <rect width="1740" height="390" fill="transparent"/>
 <style>
   .paper{fill:#F8F7F2;stroke:#D9D7D0;stroke-width:1}
-  .k{font:600 10px 'IBM Plex Mono','Consolas',monospace;letter-spacing:2px;fill:#315E8A}
+  .k{font:600 12px 'IBM Plex Mono','Consolas',monospace;letter-spacing:2px;fill:#315E8A}
   .h{font-family:'Source Serif 4','Georgia','Times New Roman',serif;fill:#111418}
   .b{font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;fill:#404851}
   .m{font-family:'IBM Plex Mono','Consolas',monospace;fill:#6B7280}
@@ -21,15 +21,15 @@
 <circle cx="466" cy="194" r="10" fill="#2E7D64"/>
 <circle cx="392" cy="274" r="6" fill="#93A39B"/>
 <line x1="30" y1="304" x2="510" y2="304" stroke="#D9D7D0"/>
-<text class="m" x="30" y="329" font-size="10">VASWANI ET AL. · NIPS 2017</text>
-<text class="m" x="510" y="329" text-anchor="end" font-size="10">TITLE</text>
+<text class="m" x="30" y="329" font-size="12">VASWANI ET AL. · NIPS 2017</text>
+<text class="m" x="510" y="329" text-anchor="end" font-size="12">TITLE</text>
 </g>
 <g transform="translate(600 15)">
 <rect class="paper" width="540" height="350" rx="6"/>
 <text class="k" x="30" y="38">ARCHITECTURE</text>
 <text class="h" x="30" y="80" font-size="27" font-weight="700">Encoder–decoder,</text>
 <text class="h" x="30" y="108" font-size="27" font-weight="700">stacked six times</text>
-<text class="b" x="30" y="132" font-size="11">A restrained redraw: structure first, decoration last.</text>
+<text class="b" x="30" y="132" font-size="13">A restrained redraw: structure first, decoration last.</text>
 <path d="M54 147 h-8 v124 h8" fill="none" stroke="#315E8A" stroke-width="1.2"/>
 <text class="m" x="30" y="213" font-size="12">×6</text>
 <path d="M486 147 h8 v124 h-8" fill="none" stroke="#315E8A" stroke-width="1.2"/>
@@ -37,25 +37,25 @@
 <rect x="68" y="146" width="164" height="34" rx="3" fill="#EAF0F5" stroke="#A9BAC8"/>
 <rect x="68" y="192" width="164" height="34" rx="3" fill="#F3F2EE" stroke="#D6D3CB"/>
 <rect x="68" y="238" width="164" height="34" rx="3" fill="#E8F1ED" stroke="#9BB9AD"/>
-<text class="b" x="150" y="168" text-anchor="middle" font-size="11">self-attention</text>
-<text class="b" x="150" y="214" text-anchor="middle" font-size="11">layer norm</text>
-<text class="b" x="150" y="260" text-anchor="middle" font-size="11">feed-forward</text>
+<text class="b" x="150" y="168" text-anchor="middle" font-size="13">self-attention</text>
+<text class="b" x="150" y="214" text-anchor="middle" font-size="13">layer norm</text>
+<text class="b" x="150" y="260" text-anchor="middle" font-size="13">feed-forward</text>
 <rect x="308" y="146" width="164" height="34" rx="3" fill="#F1ECE2" stroke="#C9AC83"/>
 <rect x="308" y="192" width="164" height="34" rx="3" fill="#EAF0F5" stroke="#A9BAC8"/>
 <rect x="308" y="238" width="164" height="34" rx="3" fill="#E8F1ED" stroke="#9BB9AD"/>
-<text class="b" x="390" y="168" text-anchor="middle" font-size="11">masked attention</text>
-<text class="b" x="390" y="214" text-anchor="middle" font-size="11">cross-attention</text>
-<text class="b" x="390" y="260" text-anchor="middle" font-size="11">feed-forward</text>
+<text class="b" x="390" y="168" text-anchor="middle" font-size="13">masked attention</text>
+<text class="b" x="390" y="214" text-anchor="middle" font-size="13">cross-attention</text>
+<text class="b" x="390" y="260" text-anchor="middle" font-size="13">feed-forward</text>
 <path d="M238 208 H296" stroke="#73808C" stroke-width="1.2"/>
 <path d="M290 203 L297 208 L290 213" fill="none" stroke="#73808C" stroke-width="1.2"/>
 <line x1="30" y1="304" x2="510" y2="304" stroke="#D9D7D0"/>
-<text class="m" x="30" y="329" font-size="10">SOURCE · §3.1 + §3.3 · EXPLANATORY REDRAW</text>
+<text class="m" x="30" y="329" font-size="12">SOURCE · §3.1 + §3.3 · EXPLANATORY REDRAW</text>
 </g>
 <g transform="translate(1200 15)">
 <rect class="paper" width="540" height="350" rx="6"/>
 <text class="k" x="30" y="38">EQUATION</text>
 <text class="h" x="30" y="86" font-size="30" font-weight="700">Scaled dot-product attention</text>
-<text class="b" x="30" y="111" font-size="12">One equation. Three semantic anchors.</text>
+<text class="b" x="30" y="111" font-size="14">One equation. Three semantic anchors.</text>
 <text class="h" x="35" y="184" font-size="24" font-style="italic">Attention(Q,K,V) = softmax</text>
 <text class="h" x="337" y="184" font-size="42">(</text>
 <text class="h" x="371" y="157" font-size="24" font-style="italic">QK</text>
@@ -78,6 +78,6 @@
 <text class="it" x="468" y="257" text-anchor="middle" font-size="13" fill="#2E7D64">weighted</text>
 <text class="it" x="468" y="273" text-anchor="middle" font-size="13" fill="#2E7D64">values</text>
 <line x1="30" y1="304" x2="510" y2="304" stroke="#D9D7D0"/>
-<text class="m" x="30" y="329" font-size="10">SOURCE · §3.2.1 · EQ. (1)</text>
+<text class="m" x="30" y="329" font-size="12">SOURCE · §3.2.1 · EQ. (1)</text>
 </g>
 </svg>
