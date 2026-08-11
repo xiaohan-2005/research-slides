@@ -58,6 +58,11 @@ After selection:
 
 ## Current Templates
 
-- `neural-lab` — dark computational research system for AI, ML, systems, architecture, and algorithm-heavy presentations.
+- `neural-lab` — dark computational system for AI/ML, systems, architecture, equations, and ablations.
+- `scientific-minimal` — publication-adjacent light system for figures, equations, experiments, and formal defenses.
+- `data-atlas` — quantitative system for statistics, benchmarking, uncertainty, comparisons, and data-heavy reports.
+- `editorial-academic` — warm scholarly system for literature reviews, conceptual argument, policy, and thesis narratives.
 
-More templates should be added only when they introduce a meaningfully different visual grammar, not merely a different accent color.
+These templates are intentionally different in **visual grammar**, not merely accent color.
+
+The public README gallery uses separate assets under `assets/style-gallery/` so the human-facing visual library does not need to be loaded into Codex during normal Skill execution.
