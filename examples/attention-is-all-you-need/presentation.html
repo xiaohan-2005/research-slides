@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Attention Is All You Need — Research Slides Demo</title>
+<style>
+:root{--paper:#f4f1e8;--ink:#111827;--muted:#667085;--line:#d9d4c8;--blue:#2457d6;--teal:#0f766e;--amber:#c67a19;--red:#b94343;--navy:#0b1739;--white:#fff;--shadow:0 28px 80px rgba(16,24,40,.16)}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0a0f1d;color:var(--ink);font-family:Georgia,'Times New Roman',serif}button{font:inherit}
+.viewport{position:fixed;inset:0;display:grid;place-items:center}.stage{position:relative;width:1600px;height:900px;transform-origin:center center;background:var(--paper);box-shadow:var(--shadow);overflow:hidden}.slide{position:absolute;inset:0;padding:76px 92px 70px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .36s ease}.slide.active{opacity:1;visibility:visible;pointer-events:auto}.slide::before{content:"";position:absolute;left:0;top:0;width:12px;height:100%;background:var(--blue)}
+.kicker{font-family:Arial,sans-serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:18px;color:var(--blue);margin-bottom:18px}.title{font-size:66px;line-height:1.02;letter-spacing:-.035em;margin:0 0 26px;max-width:1200px}.subtitle{font-family:Arial,sans-serif;font-size:28px;line-height:1.45;color:#344054;max-width:1120px}.meta{font-family:Arial,sans-serif;font-size:17px;color:var(--muted);letter-spacing:.02em}.source{position:absolute;left:92px;right:92px;bottom:28px;font-family:Arial,sans-serif;font-size:14px;color:#77736b;border-top:1px solid var(--line);padding-top:12px}.page{position:absolute;right:42px;top:40px;font-family:Arial,sans-serif;font-size:15px;color:#77736b}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.card{background:rgba(255,255,255,.68);border:1px solid var(--line);border-radius:20px;padding:28px}.card h3{margin:0 0 12px;font-size:28px}.card p{font-family:Arial,sans-serif;font-size:20px;line-height:1.45;color:#475467;margin:0}.big-number{font-size:84px;font-weight:700;line-height:1;color:var(--navy)}.label{font-family:Arial,sans-serif;font-size:18px;color:var(--muted);margin-top:10px}.quote{font-size:42px;line-height:1.24;max-width:1180px}.accent{color:var(--blue)}.teal{color:var(--teal)}.amber{color:var(--amber)}.mono{font-family:'Courier New',monospace}.pill{display:inline-block;border:1px solid var(--line);padding:8px 13px;border-radius:999px;font-family:Arial,sans-serif;font-size:16px;margin:4px 7px 4px 0;background:#fff}.formula{font-size:42px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 34px;text-align:center;margin:22px 0}.tiny{font-family:Arial,sans-serif;font-size:16px;color:var(--muted)}
+.hero{background:linear-gradient(135deg,#f7f3e9 0%,#eef3ff 58%,#e7f7f3 100%)}.hero::after{content:"";position:absolute;width:640px;height:640px;border-radius:50%;border:1px solid rgba(36,87,214,.16);right:-180px;top:-190px;box-shadow:0 0 0 65px rgba(36,87,214,.05),0 0 0 130px rgba(15,118,110,.035)}.hero .title{font-size:88px;max-width:980px}.hero .subtitle{font-size:30px;max-width:850px}.hero-mark{position:absolute;right:135px;bottom:155px;width:360px;height:360px}.node{position:absolute;width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--blue);font-family:Arial,sans-serif;font-weight:700;color:var(--blue);z-index:2}.edge{position:absolute;height:2px;background:rgba(36,87,214,.35);transform-origin:left center}
+.timeline{display:flex;gap:18px;align-items:stretch;margin-top:42px}.step{flex:1;border-top:5px solid var(--line);padding:18px 6px 0}.step strong{display:block;font-size:25px;margin-bottom:8px}.step span{font-family:Arial,sans-serif;color:var(--muted);font-size:18px;line-height:1.35}.step.hot{border-color:var(--blue)}
+.arch{display:grid;grid-template-columns:1fr 140px 1fr;gap:26px;align-items:center}.stack{display:flex;flex-direction:column;gap:13px}.block{padding:17px 18px;border-radius:14px;text-align:center;font-family:Arial,sans-serif;font-size:18px;font-weight:700;border:1px solid var(--line);background:#fff}.block.attn{border-color:#8ba7f5;background:#edf2ff;color:#2047b4}.block.ffn{border-color:#8ac8c1;background:#e8f7f4;color:#0f665f}.block.mask{border-color:#e8c48f;background:#fff5e7;color:#9a5e13}.x6{font-family:Arial,sans-serif;color:var(--muted);text-align:center;font-weight:700}.arrow{height:2px;background:var(--line);position:relative}.arrow::after{content:"";position:absolute;right:-1px;top:-5px;border-left:9px solid var(--line);border-top:6px solid transparent;border-bottom:6px solid transparent}
+.attn-viz{position:relative;height:365px;background:#0e1833;border-radius:24px;overflow:hidden;border:1px solid #22335c}.token-row{position:absolute;left:40px;right:40px;display:flex;justify-content:space-between}.token-row.top{top:44px}.token-row.bottom{bottom:44px}.tok{width:74px;height:52px;border-radius:12px;background:#fff;display:grid;place-items:center;font-family:Arial,sans-serif;font-weight:700;color:#172554}.beam{position:absolute;left:0;top:0;width:100%;height:100%}.beam line{stroke:#5eead4;stroke-width:3;opacity:.45}.beam line.hot{stroke:#fbbf24;stroke-width:6;opacity:.9}
+.heads{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.head{height:120px;border-radius:18px;border:1px solid #cad6fa;background:linear-gradient(145deg,#f8faff,#e9efff);display:grid;place-items:center;font-family:Arial,sans-serif;font-weight:800;color:#2948a5;position:relative;overflow:hidden}.head::after{content:"";position:absolute;width:120px;height:2px;background:rgba(36,87,214,.25);transform:rotate(-25deg)}
+.wave{height:250px;position:relative;border-left:1px solid var(--line);border-bottom:1px solid var(--line);margin:28px 10px 0}.wave svg{width:100%;height:100%}.legend{display:flex;gap:18px;font-family:Arial,sans-serif;font-size:16px;color:var(--muted)}.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px}
+.compare{display:grid;grid-template-columns:1.25fr repeat(3,.75fr);border:1px solid var(--line);border-radius:18px;overflow:hidden}.compare div{padding:20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-family:Arial,sans-serif;font-size:19px}.compare div:nth-child(4n){border-right:none}.compare .headrow{font-weight:800;background:#eef3ff}.compare .good{background:#e9f7f4;color:#0f665f;font-weight:700}
+.train{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}.train .card{min-height:190px}.train .big-number{font-size:54px}.bar-wrap{margin-top:34px}.bar-row{display:grid;grid-template-columns:190px 1fr 90px;gap:18px;align-items:center;margin:18px 0;font-family:Arial,sans-serif}.bar{height:28px;background:#ddd8cf;border-radius:999px;overflow:hidden}.bar > span{display:block;height:100%;background:var(--blue);border-radius:999px}.bar.tealbar>span{background:var(--teal)}.bar.goldbar>span{background:var(--amber)}
+.ablation{display:grid;grid-template-columns:1fr 1fr;gap:34px}.mini-chart{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}.points{display:flex;align-items:flex-end;gap:18px;height:180px;border-bottom:1px solid var(--line);padding:0 10px}.pt{flex:1;background:#9db2ef;border-radius:8px 8px 0 0;position:relative}.pt.best{background:var(--teal)}.pt span{position:absolute;left:50%;transform:translateX(-50%);bottom:-28px;font-family:Arial,sans-serif;font-size:14px;color:var(--muted)}.pt b{position:absolute;left:50%;transform:translateX(-50%);top:-25px;font-family:Arial,sans-serif;font-size:14px}
+.final{background:linear-gradient(135deg,#0d1736,#122454 60%,#0e514e);color:#fff}.final::before{background:#5eead4}.final .kicker,.final .subtitle,.final .meta{color:#c8d6ff}.final .title{color:#fff}.final .source{border-color:rgba(255,255,255,.18);color:#bfd0df}.final .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}.final .card p{color:#dce7f1}.final .card h3{color:#fff}
+.controls{position:fixed;z-index:20;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:8px;align-items:center;background:rgba(7,12,25,.82);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);padding:8px 10px;border-radius:999px;color:#fff;font-family:Arial,sans-serif}.controls button{border:0;color:#fff;background:rgba(255,255,255,.1);width:38px;height:34px;border-radius:999px;cursor:pointer}.counter{min-width:72px;text-align:center;font-size:14px}.progress{position:fixed;left:0;bottom:0;height:3px;background:#5eead4;z-index:30;transition:width .25s ease}@media(prefers-reduced-motion:reduce){.slide{transition:none}}
+</style>
+</head>
+<body>
+<div class="viewport"><main class="stage" id="stage">
+
+<section class="slide hero active">
+  <div class="page">01 / 12</div>
+  <div class="kicker">Research Slides · paper → presentation</div>
+  <h1 class="title">Attention Is All You Need</h1>
+  <p class="subtitle">A research-first walkthrough of the Transformer: what bottleneck it removed, how self-attention works, and what the 2017 experiments actually demonstrated.</p>
+  <p class="meta" style="margin-top:38px">Vaswani et al. · NIPS 2017 · demo deck generated as original HTML/CSS</p>
+  <div class="hero-mark">
+    <div class="node" style="left:20px;top:145px">Q</div><div class="node" style="left:145px;top:20px">K</div><div class="node" style="left:266px;top:145px">V</div><div class="node" style="left:145px;top:270px;border-color:#0f766e;color:#0f766e">A</div>
+    <div class="edge" style="left:72px;top:160px;width:165px;transform:rotate(-42deg)"></div><div class="edge" style="left:195px;top:72px;width:165px;transform:rotate(42deg)"></div><div class="edge" style="left:72px;top:190px;width:165px;transform:rotate(42deg)"></div><div class="edge" style="left:195px;top:286px;width:165px;transform:rotate(-42deg)"></div>
+  </div>
+  <div class="source">Primary source: Vaswani et al. (2017), title + abstract.</div>
+</section>
+
+<section class="slide">
+  <div class="page">02 / 12</div><div class="kicker">Problem</div>
+  <h2 class="title">The bottleneck was <span class="accent">sequential computation</span></h2>
+  <p class="subtitle">Recurrent sequence models process hidden states in order. That creates a dependency chain inside each training example and limits parallelization as sequences grow.</p>
+  <div class="timeline">
+    <div class="step"><strong>x₁</strong><span>token enters recurrent state</span></div>
+    <div class="step"><strong>h₁</strong><span>must finish before the next state</span></div>
+    <div class="step"><strong>h₂</strong><span>depends on h₁</span></div>
+    <div class="step"><strong>h₃</strong><span>depends on h₂</span></div>
+    <div class="step hot"><strong>hₙ</strong><span>training still carries a sequential path of length O(n)</span></div>
+  </div>
+  <div class="card" style="margin-top:42px"><h3>Research question</h3><p>Can a sequence-to-sequence model remove recurrence and convolution while preserving translation quality—and gain parallelism in the process?</p></div>
+  <div class="source">Source: §1 Introduction, especially the discussion of sequential hidden-state computation and the remaining constraint on parallelization.</div>
+</section>
+
+<section class="slide">
+  <div class="page">03 / 12</div><div class="kicker">Core idea</div>
+  <h2 class="title">Replace recurrence with <span class="teal">attention</span></h2>
+  <div class="grid2" style="margin-top:38px">
+    <div>
+      <p class="quote">“Connect positions by learned relevance, not by stepping through time.”</p>
+      <p class="tiny">Interpretation for presentation clarity—not a verbatim quote from the paper.</p>
+    </div>
+    <div class="grid3" style="grid-template-columns:1fr;gap:16px">
+      <div class="card"><h3>Global dependency</h3><p>Each position can attend to relevant positions without distance-dependent recurrence.</p></div>
+      <div class="card"><h3>Parallel representation</h3><p>Self-attention over a layer can be computed with matrix operations across positions.</p></div>
+      <div class="card"><h3>Encoder–decoder retained</h3><p>The Transformer keeps the transduction structure while changing the internal building blocks.</p></div>
+    </div>
+  </div>
+  <div class="source">Source: §1–§3. The paper proposes a Transformer relying entirely on attention to draw global dependencies.</div>
+</section>
+
+<section class="slide">
+  <div class="page">04 / 12</div><div class="kicker">Architecture</div>
+  <h2 class="title">Transformer at a glance</h2>
+  <div class="arch" style="margin-top:30px">
+    <div><div class="x6">ENCODER × 6</div><div class="stack"><div class="block attn">Multi-Head Self-Attention</div><div class="block">Add &amp; LayerNorm</div><div class="block ffn">Position-wise FFN</div><div class="block">Add &amp; LayerNorm</div></div></div>
+    <div><div class="arrow"></div><div style="text-align:center;font-family:Arial,sans-serif;color:var(--muted);margin-top:12px">memory<br/>K, V</div></div>
+    <div><div class="x6">DECODER × 6</div><div class="stack"><div class="block mask">Masked Self-Attention</div><div class="block">Add &amp; LayerNorm</div><div class="block attn">Encoder–Decoder Attention</div><div class="block">Add &amp; LayerNorm</div><div class="block ffn">Position-wise FFN</div><div class="block">Add &amp; LayerNorm</div></div></div>
+  </div>
+  <div class="grid3" style="margin-top:30px"><div class="card"><div class="big-number">6</div><div class="label">layers in each stack</div></div><div class="card"><div class="big-number">512</div><div class="label">d_model in base model</div></div><div class="card"><div class="big-number">2048</div><div class="label">feed-forward inner dimension</div></div></div>
+  <div class="source">Source: §3.1 and §3.3. Original explanatory diagram; not copied from the paper's Figure 1.</div>
+</section>
+
+<section class="slide">
+  <div class="page">05 / 12</div><div class="kicker">Mechanism</div>
+  <h2 class="title">Scaled dot-product attention</h2>
+  <div class="formula mono">Attention(Q, K, V) = softmax(QKᵀ / √dₖ) V</div>
+  <div class="grid2" style="margin-top:30px">
+    <div class="attn-viz">
+      <div class="token-row top"><div class="tok">Q₁</div><div class="tok">Q₂</div><div class="tok">Q₃</div><div class="tok">Q₄</div></div>
+      <svg class="beam" viewBox="0 0 600 365" preserveAspectRatio="none"><line x1="75" y1="95" x2="75" y2="270"/><line x1="75" y1="95" x2="225" y2="270" class="hot"/><line x1="225" y1="95" x2="375" y2="270"/><line x1="375" y1="95" x2="225" y2="270"/><line x1="525" y1="95" x2="525" y2="270" class="hot"/></svg>
+      <div class="token-row bottom"><div class="tok">V₁</div><div class="tok">V₂</div><div class="tok">V₃</div><div class="tok">V₄</div></div>
+    </div>
+    <div><div class="card"><h3>1 · Compatibility</h3><p>Compute dot products between queries and keys.</p></div><div class="card" style="margin-top:16px"><h3>2 · Scale</h3><p>Divide by √dₖ to reduce the risk of large dot products pushing softmax into very small-gradient regions.</p></div><div class="card" style="margin-top:16px"><h3>3 · Weighted values</h3><p>Softmax weights determine how the values are combined.</p></div></div>
+  </div>
+  <div class="source">Source: §3.2.1, Equation (1). The motivation for scaling is described immediately after the equation.</div>
+</section>
+
+<section class="slide">
+  <div class="page">06 / 12</div><div class="kicker">Representation</div>
+  <h2 class="title">Multi-head attention: several views in parallel</h2>
+  <p class="subtitle">The base Transformer uses <strong>8 heads</strong>, each with dₖ = dᵥ = 64. Each head receives learned projections of Q, K and V; their outputs are concatenated and projected again.</p>
+  <div class="heads" style="margin-top:42px"><div class="head">HEAD 1</div><div class="head">HEAD 2</div><div class="head">HEAD 3</div><div class="head">HEAD 4</div><div class="head">HEAD 5</div><div class="head">HEAD 6</div><div class="head">HEAD 7</div><div class="head">HEAD 8</div></div>
+  <div class="card" style="margin-top:28px"><h3>Why multiple heads?</h3><p>The paper argues that multiple heads let the model jointly attend to information from different representation subspaces and different positions; a single head averages this capacity into one attention map.</p></div>
+  <div class="source">Source: §3.2.2. Base configuration: h = 8, dₖ = dᵥ = d_model / h = 64.</div>
+</section>
+
+<section class="slide">
+  <div class="page">07 / 12</div><div class="kicker">Sequence order</div>
+  <h2 class="title">No recurrence means position must be injected</h2>
+  <div class="grid2" style="margin-top:28px">
+    <div><div class="formula mono" style="font-size:31px">PE(pos,2i)=sin(pos/10000^(2i/d))<br/>PE(pos,2i+1)=cos(pos/10000^(2i/d))</div><div class="card"><h3>Design choice</h3><p>Positional encodings have the same dimension as token embeddings and are added at the bottoms of encoder and decoder stacks.</p></div></div>
+    <div><div class="wave"><svg viewBox="0 0 600 250" preserveAspectRatio="none"><path d="M0 125 C50 15 100 15 150 125 S250 235 300 125 S400 15 450 125 S550 235 600 125" fill="none" stroke="#2457d6" stroke-width="5"/><path d="M0 125 C80 45 160 45 240 125 S400 205 480 125 S560 45 600 85" fill="none" stroke="#0f766e" stroke-width="4" opacity=".9"/></svg></div><div class="legend"><span><i class="dot" style="background:#2457d6"></i>different frequencies</span><span><i class="dot" style="background:#0f766e"></i>encode position</span></div></div>
+  </div>
+  <div class="card" style="margin-top:28px"><h3>Ablation signal</h3><p>Learned positional embeddings produced nearly identical results to the sinusoidal version in the paper's comparison.</p></div>
+  <div class="source">Source: §3.5 and Table 3 row (E).</div>
+</section>
+
+<section class="slide">
+  <div class="page">08 / 12</div><div class="kicker">Why self-attention?</div>
+  <h2 class="title">Three criteria: complexity, parallelism, path length</h2>
+  <div class="compare" style="margin-top:34px">
+    <div class="headrow">Layer type</div><div class="headrow">Complexity / layer</div><div class="headrow">Sequential ops</div><div class="headrow">Max path</div>
+    <div class="good">Self-attention</div><div class="good">O(n² · d)</div><div class="good">O(1)</div><div class="good">O(1)</div>
+    <div>Recurrent</div><div>O(n · d²)</div><div>O(n)</div><div>O(n)</div>
+    <div>Convolutional</div><div>O(k · n · d²)</div><div>O(1)</div><div>O(logₖ n)</div>
+  </div>
+  <div class="grid2" style="margin-top:34px"><div class="card"><h3>Parallelism</h3><p>Self-attention connects all positions with a constant number of sequentially executed operations.</p></div><div class="card"><h3>Long-range paths</h3><p>The path between any two positions is constant in a full self-attention layer, rather than growing with sequence length.</p></div></div>
+  <div class="source">Source: §4 and Table 1. Complexity advantage over recurrence depends on sequence length n relative to representation dimension d.</div>
+</section>
+
+<section class="slide">
+  <div class="page">09 / 12</div><div class="kicker">Training</div>
+  <h2 class="title">The result was also an engineering recipe</h2>
+  <div class="train"><div class="card"><div class="big-number">4.5M</div><div class="label">WMT14 EN–DE sentence pairs</div></div><div class="card"><div class="big-number">8×</div><div class="label">NVIDIA P100 GPUs</div></div><div class="card"><div class="big-number">12h</div><div class="label">base model training</div></div><div class="card"><div class="big-number">4000</div><div class="label">warmup steps</div></div></div>
+  <div class="grid2" style="margin-top:32px"><div class="card"><h3>Optimizer</h3><p>Adam with β₁ = 0.9, β₂ = 0.98, ε = 10⁻⁹, plus a warmup and inverse-square-root learning-rate schedule.</p></div><div class="card"><h3>Regularization</h3><p>Residual dropout and label smoothing are part of the reported recipe; base-model dropout is 0.1.</p></div></div>
+  <div class="source">Source: §5.1–§5.4. Big models were trained for 300k steps / 3.5 days on the same 8-P100 setup.</div>
+</section>
+
+<section class="slide">
+  <div class="page">10 / 12</div><div class="kicker">Results</div>
+  <h2 class="title">Translation quality improved at lower reported training cost</h2>
+  <div class="bar-wrap">
+    <div class="bar-row"><strong>EN→DE · ConvS2S ensemble</strong><div class="bar goldbar"><span style="width:92.8%"></span></div><b>26.36</b></div>
+    <div class="bar-row"><strong>EN→DE · Transformer big</strong><div class="bar"><span style="width:100%"></span></div><b>28.4</b></div>
+    <div class="bar-row" style="margin-top:38px"><strong>EN→FR · previous single models*</strong><div class="bar goldbar"><span style="width:98%"></span></div><b>≤40.56</b></div>
+    <div class="bar-row"><strong>EN→FR · Transformer big</strong><div class="bar tealbar"><span style="width:100%"></span></div><b>41.0</b></div>
+  </div>
+  <div class="grid2" style="margin-top:42px"><div class="card"><div class="big-number">28.4</div><div class="label">WMT14 English→German BLEU</div></div><div class="card"><div class="big-number">41.0</div><div class="label">WMT14 English→French BLEU</div></div></div>
+  <p class="tiny" style="margin-top:16px">*Among single-model baselines listed in Table 2; the paper separately lists higher ensemble scores.</p>
+  <div class="source">Source: §6.1 and Table 2. Values shown are the final NIPS paper values.</div>
+</section>
+
+<section class="slide">
+  <div class="page">11 / 12</div><div class="kicker">Ablations</div>
+  <h2 class="title">What did the model variations suggest?</h2>
+  <div class="ablation" style="margin-top:28px">
+    <div class="mini-chart"><h3 style="margin-top:0">Attention heads · dev BLEU</h3><div class="points"><div class="pt" style="height:91%"><b>24.9</b><span>1</span></div><div class="pt" style="height:96%"><b>25.5</b><span>4</span></div><div class="pt best" style="height:100%"><b>25.8</b><span>8/base</span></div><div class="pt best" style="height:100%"><b>25.8</b><span>16</span></div><div class="pt" style="height:94%"><b>25.4</b><span>32</span></div></div><p class="tiny" style="margin-top:40px">Single-head attention was 0.9 BLEU below the best setting; too many heads also reduced quality.</p></div>
+    <div class="mini-chart"><h3 style="margin-top:0">Other signals</h3><div class="card" style="margin-top:20px"><h3>Model width</h3><p>Larger models generally performed better in the variations reported.</p></div><div class="card" style="margin-top:15px"><h3>Dropout</h3><p>The authors report dropout as helpful for avoiding over-fitting.</p></div><div class="card" style="margin-top:15px"><h3>Position encoding</h3><p>Learned positional embeddings: 25.7 dev BLEU vs 25.8 for the base setup.</p></div></div>
+  </div>
+  <div class="source">Source: §6.2 and Table 3. Ablation values are development-set results on newstest2013.</div>
+</section>
+
+<section class="slide final">
+  <div class="page">12 / 12</div><div class="kicker">Conclusion</div>
+  <h2 class="title">What changed—and what remained open</h2>
+  <div class="grid3" style="margin-top:42px"><div class="card"><h3>Demonstrated</h3><p>A sequence transduction model can be built entirely around attention, replacing recurrent layers in the encoder–decoder architecture.</p></div><div class="card"><h3>Measured</h3><p>The paper reports stronger translation results with substantially more parallelizable training than the recurrent/convolutional baselines it compares against.</p></div><div class="card"><h3>Still open in 2017</h3><p>The authors explicitly point to restricted attention for large inputs, non-text modalities, and less sequential generation as future work.</p></div></div>
+  <p class="quote" style="margin-top:64px;color:#e8eefc">Research Slides principle: <strong style="color:#5eead4">separate what the paper showed from what history later made of it.</strong></p>
+  <p class="meta" style="margin-top:36px">Demo generated with original explanatory visuals · use ← / → to navigate</p>
+  <div class="source">Source: §7 Conclusion. Later historical impact is intentionally outside the evidence boundary of this demo.</div>
+</section>
+
+</main></div>
+<div class="controls"><button id="prev" aria-label="Previous slide">←</button><div class="counter" id="counter">1 / 12</div><button id="next" aria-label="Next slide">→</button></div><div class="progress" id="progress"></div>
+<script>
+const stage=document.getElementById('stage');const slides=[...document.querySelectorAll('.slide')];let index=0;
+function fit(){const s=Math.min(innerWidth/1600,innerHeight/900);stage.style.transform=`scale(${s})`}
+function show(i){index=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('active',n===index));document.getElementById('counter').textContent=`${index+1} / ${slides.length}`;document.getElementById('progress').style.width=`${((index+1)/slides.length)*100}%`;location.hash=`slide-${index+1}`}
+function fromHash(){const m=location.hash.match(/slide-(\d+)/);if(m){const n=Math.max(1,Math.min(slides.length,+m[1]));index=n-1}}
+fromHash();show(index);fit();addEventListener('resize',fit);document.getElementById('next').onclick=()=>show(index+1);document.getElementById('prev').onclick=()=>show(index-1);addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(index+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(index-1)}if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1)});addEventListener('hashchange',()=>{fromHash();show(index)});
+</script>
+</body>
+</html>
