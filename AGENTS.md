@@ -17,10 +17,17 @@ When working in this repository:
 Supporting files currently include:
 
 - `RESEARCH_RULES.md` — evidence, claims, figures, equations, and citation integrity.
-- `STYLE_PRESETS.md` — visual systems for research decks.
+- `STYLE_PRESETS.md` — safe academic visual systems and fallback directions.
+- `research-template-pack/selection-index.json` — lightweight metadata for distinctive research templates.
+- `research-template-pack/templates/<slug>/preview.md` — lightweight preview recipe; read only for shortlisted candidates.
+- `research-template-pack/templates/<slug>/design.md` — full selected design system; read only after a direction is chosen.
 - `SLIDE_SYSTEM.md` — research narrative and slide composition rules.
 - `viewport-base.css` — mandatory 1920×1080 fixed-stage CSS.
+- `html-template.md` — canonical HTML/controller architecture.
+- `animation-patterns.md` — research-specific motion guidance.
+- `scripts/validate_slides.py` — deterministic structural validation before visual review.
 - `examples/` — demonstrations and test cases.
+- `assets/style-gallery/` — human-facing gallery assets only; do not load them as runtime design specifications.
 
 ## Product Direction
 
@@ -33,8 +40,9 @@ The key differentiator is not generic slide generation. It is the combination of
 - research narrative design
 - claim/source traceability
 - figure- and equation-aware presentation
+- progressive visual discovery
 - fixed-stage HTML output
-- visual validation
+- structural and visual validation
 
 ## Codex Development Rules
 
@@ -55,6 +63,16 @@ Avoid advice such as “make it professional” without concrete implementation 
 Keep `SKILL.md` as the workflow entry point.
 
 Move detailed material into support files when it would otherwise make the main Skill unnecessarily large. `SKILL.md` should explicitly say when each support file must be read.
+
+For visual discovery specifically:
+
+1. read `selection-index.json` first;
+2. shortlist using metadata;
+3. read only shortlisted `preview.md` files;
+4. generate real user-content previews;
+5. after selection, read exactly the selected `design.md` unless the user explicitly requests a mixed system.
+
+Do not preload every template design file.
 
 ### 3. Keep the core Skill portable
 
@@ -78,6 +96,7 @@ A good example should demonstrate several of the following:
 
 - source extraction
 - narrative restructuring
+- visual style discovery
 - equations
 - figures or diagrams
 - quantitative results
@@ -105,6 +124,8 @@ For HTML presentation changes, verify at least:
 - readable citations/source labels
 - no broken local assets
 
+Run `python scripts/validate_slides.py <presentation.html>` when a local checkout is available, then perform rendered visual review separately.
+
 For Skill changes, verify:
 
 - YAML frontmatter remains valid
@@ -112,6 +133,7 @@ For Skill changes, verify:
 - every referenced support file exists
 - the workflow has a clear input → process → output path
 - no contradictory instructions exist across support files
+- progressive-disclosure rules still prevent loading every full design system up front
 
 ## Repository Hygiene
 
@@ -120,13 +142,15 @@ For Skill changes, verify:
 - Prefer small scripts that validate or transform artifacts over large framework dependencies.
 - Do not add a build system unless it clearly improves the Skill workflow.
 - Do not add a framework just to make the demo look more sophisticated.
+- Keep human-facing gallery assets separate from agent runtime instructions.
 
 ## Near-Term Priorities
 
 Unless a user task overrides this order, prioritize:
 
 1. Codex-usable Skill quality.
-2. Supporting HTML architecture and validation rules.
-3. Research extraction / verification utilities.
-4. Strong examples that test the Skill.
-5. Distribution and showcase polish only after the workflow is reliable.
+2. Strong visual discovery and selected-template execution.
+3. Supporting HTML architecture and validation rules.
+4. Research extraction / verification utilities.
+5. Strong examples that test the Skill.
+6. Distribution and showcase polish after the workflow remains reliable.
