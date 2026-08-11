@@ -6,19 +6,65 @@
 ![Status](https://img.shields.io/badge/status-alpha-2563EB.svg)
 ![Codex](https://img.shields.io/badge/Codex-Skill-0F766E.svg)
 
-<img src="assets/demo-cover.svg" width="100%" alt="Research Slides — Attention Is All You Need example" />
+<img src="assets/demo-cover.svg" width="100%" alt="Research Slides — Codex-first research presentation Skill" />
 
-**Research Slides** is a Codex-first Agent Skill for academic and technical presentations.
+<div align="center">
 
-It does not treat a paper like generic text to summarize. It asks Codex to preserve **claims, sources, equations, figures, quantitative results and limitations** while turning the material into a clear visual story.
+**Codex-first · claim-aware · citation-aware · fixed 16:9**
 
-## Why this exists
+[**Start with the Skill**](SKILL.md) · [**Explore the Attention test case**](examples/attention-is-all-you-need/README.md) · [**Read the validation report**](examples/attention-is-all-you-need/validation/report.md)
 
-Most AI slide workflows optimize for speed and appearance.
+</div>
+
+---
+
+## The 10-second idea
+
+Most AI slide workflows optimize for **speed and appearance**.
 
 Research Slides adds a second requirement:
 
 > **Important claims should remain traceable to evidence.**
+
+```text
+claim  →  source  →  evidence  →  slide
+```
+
+It is a Codex-first Agent Skill for academic and technical presentations. Instead of treating a paper like generic text to summarize, it preserves **claims, sources, equations, figures, quantitative results and limitations** while turning the material into a visual research story.
+
+## Quick start
+
+| | Goal | Start here |
+| --- | --- | --- |
+| **USE** | Run the workflow with Codex | [`SKILL.md`](SKILL.md) |
+| **TRY** | Inspect a real paper-to-deck test case | [`Attention Is All You Need`](examples/attention-is-all-you-need/README.md) |
+| **UNDERSTAND** | See how evidence stays traceable | [`claim-ledger.md`](examples/attention-is-all-you-need/analysis/claim-ledger.md) → [`evidence-map.md`](examples/attention-is-all-you-need/analysis/evidence-map.md) |
+| **VERIFY** | Inspect what passed and what is still pending | [`validation/report.md`](examples/attention-is-all-you-need/validation/report.md) |
+
+### Use from a local checkout
+
+```bash
+git clone https://github.com/xiaohan-2005/research-slides.git
+cd research-slides
+```
+
+Open the repository in Codex and ask it to follow the workflow in `SKILL.md`.
+
+Example:
+
+```text
+Use the research-slides skill in this repository.
+Turn this paper into a 12-slide group-meeting presentation.
+Use speaker-led density.
+Keep every important quantitative claim traceable to its source.
+Show me three real title-slide previews before building the full deck.
+```
+
+> This repository is currently alpha. The workflow is usable, while the example suite, extraction tooling and rendered-browser validation are still being expanded.
+
+---
+
+## Why it is different
 
 ```text
 Paper / Notes / Data
@@ -29,78 +75,64 @@ Claim ledger
         ↓
 Narrative design
         ↓
-Visual style discovery
+Visual discovery
         ↓
 1920×1080 HTML deck
         ↓
-Structural + evidence + visual validation
+Evidence + structural + visual validation
 ```
 
-## What the Skill does
+### Research-aware generation
 
-- **Research narrative, not paper transcription** — reorganizes source material around the scientific question and evidence.
+- **Narrative, not transcription** — reorganizes source material around the scientific question and evidence.
 - **Claim-aware** — separates reported findings, derived values, interpretation and background context.
 - **Citation-aware** — maps important claims, numbers, figures and equations back to their sources.
 - **Figure-aware** — treats figures as evidence rather than decoration.
 - **Equation-aware** — preserves mathematical meaning and distinguishes source equations from explanatory annotations.
-- **Visual style discovery** — generates real slide previews before committing to a full visual system.
-- **Fixed-stage HTML** — authors every deck at 1920×1080 and scales the stage instead of reflowing slides like a webpage.
-- **Validation-first** — requires evidence checks and structural checks before the deck is considered complete.
 
-## Install in Codex
+### Visual discovery, not style guessing
 
-Codex supports reusable Skills built around `SKILL.md` plus supporting resources. This repository is structured as one Skill bundle.
+Research Slides does not begin by asking the user to describe an abstract aesthetic.
 
-### Option A — use Codex's bundled skill installer
-
-In Codex, ask the built-in skill installer to install this repository root as `research-slides`:
+It follows a progressive visual-selection loop:
 
 ```text
-$skill-installer install the skill from xiaohan-2005/research-slides using repo path "." and name "research-slides"
+STYLE_PRESETS.md
+        +
+selection-index.json
+        ↓
+shortlist metadata
+        ↓
+preview.md only
+        ↓
+3 real title-slide previews
+        ↓
+user selects a direction
+        ↓
+load exactly one design.md
+        ↓
+generate the full deck
 ```
 
-The bundled installer installs user Skills under `$CODEX_HOME/skills` (normally `~/.codex/skills`). Restart Codex if the newly installed Skill does not appear immediately.
+The preview slides use the user's **real title and context**. They must not expose internal labels such as `Option A`, template names, file paths or workflow metadata.
 
-### Option B — clone manually
+### Fixed-stage presentation runtime
 
-```bash
-git clone https://github.com/xiaohan-2005/research-slides.git ~/.codex/skills/research-slides
-```
+Every final deck is authored at exactly **1920×1080** and scales as one stage.
 
-Then restart Codex.
+It does not turn into a vertically stacked mobile webpage.
 
-> The repository is currently in alpha. The Skill format and workflow are usable, but the example suite and runtime validation are still being expanded.
+- keyboard navigation;
+- touch/swipe navigation when feasible;
+- progress/page feedback outside the authored slide canvas;
+- reduced-motion support;
+- source labels that remain part of the scientific interface.
 
-## Use with Codex
-
-Once installed, ask for the research task normally or explicitly reference the Skill.
-
-Example:
-
-```text
-Use the research-slides skill.
-Turn this paper into a 12-slide group-meeting presentation.
-Use a speaker-led density.
-Keep every important quantitative claim traceable to the source.
-Show me three real title-slide style previews before building the full deck.
-```
-
-A good run should follow the phases in [`SKILL.md`](SKILL.md):
-
-```text
-0  Detect task
-1  Research intake
-2  Evidence extraction
-3  Narrative design
-4  Visual style discovery
-5  Generate presentation
-6  Validate evidence + rendering
-7  Deliver
-```
+---
 
 ## Skill architecture
 
-`SKILL.md` is the entry point. Detailed rules are loaded only when the task needs them.
+`SKILL.md` is the executable workflow. Detailed resources are loaded only when the task needs them.
 
 ```text
 research-slides/
@@ -113,6 +145,14 @@ research-slides/
 ├── viewport-base.css
 ├── html-template.md
 ├── animation-patterns.md
+│
+├── research-template-pack/
+│   ├── README.md
+│   ├── selection-index.json
+│   └── templates/
+│       └── neural-lab/
+│           ├── preview.md
+│           └── design.md
 │
 ├── scripts/
 │   └── validate_slides.py
@@ -133,24 +173,26 @@ research-slides/
 
 ### Progressive disclosure
 
-The Skill intentionally does **not** put every rule in one giant prompt.
+| File | Job | Load when |
+| --- | --- | --- |
+| [`SKILL.md`](SKILL.md) | executable workflow and trigger logic | entry point |
+| [`RESEARCH_RULES.md`](RESEARCH_RULES.md) | evidence, citation, figure and equation integrity | evidence extraction + validation |
+| [`STYLE_PRESETS.md`](STYLE_PRESETS.md) | safe academic visual systems | style discovery |
+| [`research-template-pack/selection-index.json`](research-template-pack/selection-index.json) | lightweight template metadata | candidate selection |
+| `templates/<slug>/preview.md` | lightweight visual recipe | shortlisted candidates only |
+| `templates/<slug>/design.md` | full implementation-grade design system | selected template only |
+| [`viewport-base.css`](viewport-base.css) | fixed 1920×1080 stage | generation |
+| [`html-template.md`](html-template.md) | HTML/controller architecture | generation |
+| [`animation-patterns.md`](animation-patterns.md) | research-specific motion grammar | generation |
+| [`scripts/validate_slides.py`](scripts/validate_slides.py) | deterministic static checks | validation |
 
-| File | Job |
-| --- | --- |
-| [`SKILL.md`](SKILL.md) | executable workflow and trigger logic |
-| [`RESEARCH_RULES.md`](RESEARCH_RULES.md) | evidence, citation, figure and equation integrity |
-| [`STYLE_PRESETS.md`](STYLE_PRESETS.md) | concrete academic visual systems |
-| [`SLIDE_SYSTEM.md`](SLIDE_SYSTEM.md) | narrative and slide-composition heuristics |
-| [`viewport-base.css`](viewport-base.css) | mandatory fixed 1920×1080 stage behavior |
-| [`html-template.md`](html-template.md) | HTML/controller architecture |
-| [`animation-patterns.md`](animation-patterns.md) | research-specific motion patterns |
-| [`scripts/validate_slides.py`](scripts/validate_slides.py) | deterministic static checks before visual review |
+---
 
 ## End-to-end test case
 
 ### Attention Is All You Need
 
-The first test case uses Vaswani et al. (2017) to exercise the full workflow rather than only showing a finished deck.
+The first test case uses Vaswani et al. (2017) to exercise the workflow, rather than showing only a finished slide deck.
 
 It includes:
 
@@ -162,15 +204,15 @@ It includes:
 - a canonical 1920×1080 output;
 - a validation report that records passes, failures and pending checks.
 
-Start here:
+Useful entry points:
 
-- [`examples/attention-is-all-you-need/README.md`](examples/attention-is-all-you-need/README.md)
-- [`claim-ledger.md`](examples/attention-is-all-you-need/analysis/claim-ledger.md)
-- [`evidence-map.md`](examples/attention-is-all-you-need/analysis/evidence-map.md)
-- [`canonical presentation`](examples/attention-is-all-you-need/output/presentation.html)
+- [`test-case README`](examples/attention-is-all-you-need/README.md)
+- [`claim ledger`](examples/attention-is-all-you-need/analysis/claim-ledger.md)
+- [`evidence map`](examples/attention-is-all-you-need/analysis/evidence-map.md)
+- [`canonical deck source`](examples/attention-is-all-you-need/output/presentation.html)
 - [`validation report`](examples/attention-is-all-you-need/validation/report.md)
 
-Current test status:
+Current status:
 
 ```text
 Evidence validation      PASS
@@ -180,6 +222,8 @@ Release-ready             NO
 ```
 
 The example is intentionally not labeled release-ready until every slide has been inspected in a rendered browser.
+
+---
 
 ## Validate a generated deck
 
@@ -201,6 +245,8 @@ It checks common contract failures such as:
 
 Passing the script does **not** prove that the deck looks correct. Rendered inspection is still required for clipping, overlap, figure legibility, equations and citations.
 
+---
+
 ## Research integrity contract
 
 Research Slides should fail safely rather than manufacture confidence.
@@ -217,16 +263,17 @@ It must not:
 
 When evidence is incomplete, mark it as incomplete.
 
-## Current status
+---
 
-This project is an **alpha research Skill**, not a finished one-command paper-to-slides product.
+## Current status
 
 Completed:
 
 - [x] Codex-oriented `SKILL.md`
 - [x] repository `AGENTS.md`
 - [x] research-integrity rules
-- [x] concrete visual presets
+- [x] progressive visual discovery engine
+- [x] first implementation-grade research template (`neural-lab`)
 - [x] fixed 1920×1080 stage contract
 - [x] HTML presentation architecture
 - [x] research animation guidance
@@ -236,6 +283,7 @@ Completed:
 Next engineering priorities:
 
 - [ ] browser-based visual validation automation
+- [ ] migrate the Attention test deck fully onto the selected Neural Lab design system
 - [ ] PDF structure / figure extraction
 - [ ] machine-readable claim/source schema
 - [ ] citation verification tooling
