@@ -2,6 +2,7 @@
 
 > **Turn papers, research notes and data into evidence-grounded, citation-aware presentations with Codex.**
 
+[![GitHub stars](https://img.shields.io/github/stars/xiaohan-2005/research-slides?style=social)](https://github.com/xiaohan-2005/research-slides/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111827.svg)](LICENSE)
 ![Status](https://img.shields.io/badge/status-alpha-2563EB.svg)
 ![Codex](https://img.shields.io/badge/Codex-Skill-0F766E.svg)
@@ -14,7 +15,21 @@
 
 [**Start with the Skill**](SKILL.md) · [**Competition defense case**](examples/chengdu-fresh-market-defense/README.md) · [**Technical paper case**](examples/attention-is-all-you-need/README.md)
 
+If this workflow helps your research, teaching or competition prep, **⭐ star the repository** — it helps more people discover the project.
+
 </div>
+
+---
+
+## See it in action
+
+<a href="examples/chengdu-fresh-market-defense/README.md">
+  <img src="examples/chengdu-fresh-market-defense/preview/contact-sheet.png" width="100%" alt="Research Slides — 14-slide Chengdu community fresh market competition defense contact sheet" />
+</a>
+
+**A 100-page Chinese national first-prize market-research paper → a 14-slide, speaker-led competition defense deck.** The case keeps survey evidence, fieldwork imagery, quantitative claims and source inconsistencies traceable instead of hiding them behind polished visuals.
+
+[**Explore the full case →**](examples/chengdu-fresh-market-defense/README.md) · [**Open the HTML deck**](examples/chengdu-fresh-market-defense/output/presentation.html) · [**Read the source paper**](examples/chengdu-fresh-market-defense/source-paper.pdf) · [**Inspect the evidence map**](examples/chengdu-fresh-market-defense/analysis/evidence-map.md)
 
 ---
 
