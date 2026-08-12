@@ -1,5 +1,7 @@
 # Research Slides
 
+**English** · [简体中文](README.zh-CN.md)
+
 > **Turn papers, research notes and data into evidence-grounded, citation-aware presentations with Codex.**
 
 [![GitHub stars](https://img.shields.io/github/stars/xiaohan-2005/research-slides?style=social)](https://github.com/xiaohan-2005/research-slides/stargazers)
